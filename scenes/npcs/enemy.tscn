@@ -7,9 +7,13 @@
 [ext_resource type="Script" uid="uid://c60devy7f1h3k" path="res://scripts/states/enemy/enemy_follow.gd" id="5_d7yn8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ebcy"]
-size = Vector2(32, 32)
+size = Vector2(28, 30)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d7yn8"]
+radius = 39.0
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1246730130]
+modulate = Color(0, 0.5176471, 1, 1)
 script = ExtResource("1_wk5vr")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=788978003]
@@ -32,3 +36,10 @@ metadata/_custom_type_script = "uid://r06cggvbmi5f"
 script = ExtResource("5_d7yn8")
 enemy = NodePath("../..")
 metadata/_custom_type_script = "uid://c60devy7f1h3k"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1740708417]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1706284542]
+shape = SubResource("CircleShape2D_d7yn8")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

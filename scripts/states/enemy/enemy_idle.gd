@@ -1,8 +1,8 @@
 extends State
 class_name EnemyIdle
 
-@export var enemy : CharacterBody2D
-@export var move_speed := 20.0
+@export var enemy: CharacterBody2D
+@export var move_speed: = 20.0
 
 var player: CharacterBody2D
 

@@ -1,9 +1,9 @@
 extends Node
 
-@export var initial_state : State
+@export var initial_state: State
 
-var current_state : State
-var states : Dictionary = {}
+var current_state: State
+var states: Dictionary = {}
 
 func _ready() -> void:
 	for child in get_children():
