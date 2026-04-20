@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://bfj1sk6kh7ech"]
+
+[ext_resource type="FontFile" uid="uid://cxtib74wco5ue" path="res://assets/fonts/D3Craftism-DOeW.ttf" id="1_g3w80"]
+[ext_resource type="Script" uid="uid://clvk0x5s8soc6" path="res://scripts/levels/menu.gd" id="1_k3l6u"]
+[ext_resource type="Texture2D" uid="uid://cwyc3jqgr2kj8" path="res://assets/sprites/noise-effect.jpg" id="3_tmk6g"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_k3l6u"]
+font = ExtResource("1_g3w80")
+font_size = 46
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tmk6g"]
+font = ExtResource("1_g3w80")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_oosx4"]
+font = ExtResource("1_g3w80")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_g3w80"]
+font = ExtResource("1_g3w80")
+font_size = 32
+
+[node name="Menu" type="Node2D" unique_id=1315194617]
+script = ExtResource("1_k3l6u")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=504307318]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1545309071]
+modulate = Color(1, 1, 1, 0.05882353)
+position = Vector2(577.7778, 324)
+scale = Vector2(0.30092594, 0.3)
+texture = ExtResource("3_tmk6g")
+
+[node name="Label" type="Label" parent="." unique_id=523008366]
+offset_left = 104.0
+offset_top = 132.0
+offset_right = 488.0
+offset_bottom = 195.0
+text = "FAR BEYOND"
+label_settings = SubResource("LabelSettings_k3l6u")
+
+[node name="ButtonStart" type="Button" parent="." unique_id=278892121]
+offset_left = 160.0
+offset_top = 284.0
+offset_right = 300.0
+offset_bottom = 324.0
+pivot_offset = Vector2(70, 20)
+mouse_filter = 1
+flat = true
+
+[node name="Label" type="Label" parent="ButtonStart" unique_id=688947095]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -20.0
+offset_right = 71.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(70, 20)
+text = "START"
+label_settings = SubResource("LabelSettings_tmk6g")
+
+[node name="ButtonOptions" type="Button" parent="." unique_id=1922913697]
+offset_left = 161.0
+offset_top = 348.0
+offset_right = 340.0
+offset_bottom = 388.0
+pivot_offset = Vector2(90, 20)
+flat = true
+
+[node name="Label" type="Label" parent="ButtonOptions" unique_id=1508751854]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.503
+anchor_top = 0.5
+anchor_right = 0.503
+anchor_bottom = 0.5
+offset_left = -90.037
+offset_top = -20.0
+offset_right = 89.963
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(90, 20)
+text = "OPTIONS"
+label_settings = SubResource("LabelSettings_oosx4")
+
+[node name="ButtonCredits" type="Button" parent="." unique_id=823340533]
+offset_left = 160.0
+offset_top = 412.0
+offset_right = 340.0
+offset_bottom = 452.0
+pivot_offset = Vector2(90, 20)
+flat = true
+
+[node name="Label" type="Label" parent="ButtonCredits" unique_id=810813196]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -20.0
+offset_right = 90.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(90, 20)
+text = "CREDITS"
+label_settings = SubResource("LabelSettings_g3w80")
+
+[connection signal="mouse_entered" from="ButtonStart" to="." method="_on_button_start_mouse_entered"]
+[connection signal="mouse_exited" from="ButtonStart" to="." method="_on_button_start_mouse_exited"]
+[connection signal="mouse_entered" from="ButtonOptions" to="." method="_on_button_options_mouse_entered"]
+[connection signal="mouse_exited" from="ButtonOptions" to="." method="_on_button_options_mouse_exited"]
+[connection signal="mouse_entered" from="ButtonCredits" to="." method="_on_button_credits_mouse_entered"]
+[connection signal="mouse_exited" from="ButtonCredits" to="." method="_on_button_credits_mouse_exited"]

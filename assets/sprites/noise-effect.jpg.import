@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lerg2oybrba2"
-path="res://.godot/imported/film-grain.jpeg-3d0dd054fbf019719aca5e629a13e22b.ctex"
+uid="uid://cwyc3jqgr2kj8"
+path="res://.godot/imported/noise-effect.jpg-2065a29788f1be76d6dc550aeeb1fd5c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/film-grain.jpeg"
-dest_files=["res://.godot/imported/film-grain.jpeg-3d0dd054fbf019719aca5e629a13e22b.ctex"]
+source_file="res://assets/sprites/noise-effect.jpg"
+dest_files=["res://.godot/imported/noise-effect.jpg-2065a29788f1be76d6dc550aeeb1fd5c.ctex"]
 
 [params]
 

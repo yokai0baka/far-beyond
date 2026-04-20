@@ -10,7 +10,10 @@ func _process(_delta: float) -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if "Player" in body.name:
 		Global.in_enemy_range = true
+	else:
+		Global.in_enemy_range = false
 
 func check_attack():
-	if Global.check_attack:
+	if Global.is_attacking:
+		Global.score += 100
 		queue_free()
