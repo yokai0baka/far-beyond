@@ -2,11 +2,9 @@ extends CharacterBody2D
 class_name Player
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var camera_2d: Camera2D = $Camera2D
 
 const SPEED = 175.0
-
-var in_range = false
-var pressed_attack = false 
 
 func _physics_process(_delta: float) -> void:
 	var direction := Input.get_vector("Left", "Right", "Up", "Down")
@@ -23,18 +21,10 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 func _process(_delta: float) -> void:
-	kill()
 	$Camera2D/LabelScore.text = "SCORE: " + str(Global.score)
 	$Camera2D/LabelTime.text = "Time: " + str(roundi(Global.time))
+	kill()
 
 func kill():
-	var cooldown = false
-	if Global.in_enemy_range && !cooldown:
-		Global.is_attacking = true
+	if Global.apply_kill_effect:
 		animation_player.play("taunt")
-		cooldown = true
-
-		if cooldown:
-			await get_tree().create_timer(5.0).timeout
-			animation_player.play("idle")
-			cooldown = false

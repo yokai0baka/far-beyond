@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="far-beyond"
-run/main_scene="uid://b725ld8r66mc4"
+run/main_scene="uid://bfj1sk6kh7ech"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 

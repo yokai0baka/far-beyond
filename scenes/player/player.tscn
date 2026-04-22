@@ -1,0 +1,252 @@
+[gd_scene format=3 uid="uid://b8hp02nmd8rw5"]
+
+[ext_resource type="Script" uid="uid://cxlovubjrr5mp" path="res://scripts/player/player.gd" id="1_dovo2"]
+[ext_resource type="Texture2D" uid="uid://2008glo7louj" path="res://assets/sprites/alien.png" id="2_lvxji"]
+[ext_resource type="AudioStream" uid="uid://dst45gcy6osu7" path="res://assets/sounds/taunt.wav" id="2_npwbq"]
+[ext_resource type="Script" uid="uid://bai1rmvafwcgu" path="res://scripts/player/camera_shake.gd" id="3_c3xxp"]
+[ext_resource type="Shader" uid="uid://dbke7ly8o836i" path="res://shaders/hole.gdshader" id="3_gmlin"]
+[ext_resource type="AudioStream" uid="uid://dt0tdiombxhij" path="res://assets/sounds/death.mp3" id="3_v42im"]
+[ext_resource type="Texture2D" uid="uid://cwyc3jqgr2kj8" path="res://assets/sprites/noise-effect.jpg" id="4_tpg5x"]
+[ext_resource type="FontFile" uid="uid://cxtib74wco5ue" path="res://assets/fonts/D3Craftism-DOeW.ttf" id="6_npwbq"]
+
+[sub_resource type="Animation" id="Animation_gmlin"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/circle_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0250000011875]
+}
+
+[sub_resource type="Animation" id="Animation_p47bc"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/circle_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0750000035625]
+}
+
+[sub_resource type="Animation" id="Animation_lvxji"]
+resource_name = "taunt"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/circle_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 2.4666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0750000035625, 0.50000002375, 0.0750000035625]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 1.4999996,
+"start_offset": 0.15,
+"stream": ExtResource("2_npwbq")
+}],
+"times": PackedFloat32Array(0.16666667)
+}
+tracks/1/use_blend = true
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../AudioStreamPlayer2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.09,
+"start_offset": 0.07,
+"stream": ExtResource("3_v42im")
+}],
+"times": PackedFloat32Array(0.03333334)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p47bc"]
+_data = {
+&"RESET": SubResource("Animation_gmlin"),
+&"idle": SubResource("Animation_p47bc"),
+&"taunt": SubResource("Animation_lvxji")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dovo2"]
+size = Vector2(128, 128)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gmlin"]
+shader = ExtResource("3_gmlin")
+shader_parameter/circle_size = 0.0250000011875
+shader_parameter/screen_width = 1152.0
+shader_parameter/screen_height = 648.0
+shader_parameter/penumbra = 0.05
+
+[sub_resource type="Animation" id="Animation_75vfm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0owmy"]
+resource_name = "camera_movement"
+length = 5.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.05235987755982989, -0.05235987755982989, 0.05235987755982989]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qek5x"]
+_data = {
+&"RESET": SubResource("Animation_75vfm"),
+&"camera_movement": SubResource("Animation_0owmy")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_v42im"]
+font = ExtResource("6_npwbq")
+font_size = 21
+font_color = Color(0, 1, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_npwbq"]
+font = ExtResource("6_npwbq")
+font_size = 21
+font_color = Color(0, 1, 0, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_npwbq"]
+radius = 32.984844
+
+[node name="Player" type="CharacterBody2D" unique_id=849415694 groups=["Player"]]
+script = ExtResource("1_dovo2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=673769812]
+root_node = NodePath("../Camera2D/ColorRect")
+libraries/ = SubResource("AnimationLibrary_p47bc")
+autoplay = &"idle"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1767352157]
+modulate = Color(0, 1, 0, 1)
+texture = ExtResource("2_lvxji")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=353487865]
+scale = Vector2(0.25, 0.25)
+shape = SubResource("RectangleShape2D_dovo2")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1603391986]
+volume_db = 5.0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=374464707]
+ignore_rotation = false
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+position_smoothing_speed = 7.5
+script = ExtResource("3_c3xxp")
+shake_fade = 6.0
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D" unique_id=1732568788]
+material = SubResource("ShaderMaterial_gmlin")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CameraAnimation" type="AnimationPlayer" parent="Camera2D" unique_id=1499846326]
+libraries/ = SubResource("AnimationLibrary_qek5x")
+autoplay = &"camera_movement"
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D" unique_id=1003673461]
+modulate = Color(1, 1, 1, 0.05882353)
+scale = Vector2(0.14814815, 0.14814815)
+texture = ExtResource("4_tpg5x")
+
+[node name="LabelScore" type="Label" parent="Camera2D" unique_id=708715731]
+offset_left = -156.39725
+offset_top = -79.92433
+offset_right = -47.397247
+offset_bottom = -49.92433
+text = "SCORE: "
+label_settings = SubResource("LabelSettings_v42im")
+
+[node name="LabelTime" type="Label" parent="Camera2D" unique_id=919664627]
+offset_left = -154.72252
+offset_top = -47.968193
+offset_right = -114.72252
+offset_bottom = -24.968193
+text = "TIME:"
+label_settings = SubResource("LabelSettings_npwbq")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2107533637]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1700287920]
+shape = SubResource("CircleShape2D_npwbq")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

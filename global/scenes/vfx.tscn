@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dxh83mc42rkwq"]
+
+[ext_resource type="Shader" uid="uid://b3qxcd856ldrb" path="res://shaders/blur.gdshader" id="1_8u5de"]
+[ext_resource type="Script" uid="uid://cuilg5yqqf3ux" path="res://global/scripts/vfx.gd" id="1_hky1n"]
+
+[sub_resource type="Environment" id="Environment_hky1n"]
+background_mode = 3
+glow_enabled = true
+glow_bloom = 1.0
+glow_hdr_threshold = 2.5
+glow_hdr_scale = 3.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o5l0w"]
+shader = ExtResource("1_8u5de")
+shader_parameter/blur_amount = 1.50000007125
+
+[node name="VFX" type="Node" unique_id=275786583]
+script = ExtResource("1_hky1n")
+
+[node name="Bloom" type="WorldEnvironment" parent="." unique_id=547491331]
+environment = SubResource("Environment_hky1n")
+
+[node name="Blur" type="ColorRect" parent="." unique_id=1284031471]
+modulate = Color(1, 1, 1, 0.6862745)
+material = SubResource("ShaderMaterial_o5l0w")
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 1169.0
+offset_bottom = 659.0
