@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b8hp02nmd8rw5" path="res://scenes/player/player.tscn" id="1_72ix8"]
 [ext_resource type="PackedScene" uid="uid://dxh83mc42rkwq" path="res://global/scenes/vfx.tscn" id="1_u81e1"]
 [ext_resource type="PackedScene" uid="uid://dkbdp1o3to20w" path="res://scenes/npcs/enemy.tscn" id="2_y0acb"]
+[ext_resource type="Texture2D" uid="uid://xmwn6skv8aid" path="res://icon.svg" id="3_7lrji"]
 [ext_resource type="Texture2D" uid="uid://b7pjoaknafqvk" path="res://assets/sprites/walls/Tile1Sombra_PontaDir.png" id="4_vkq25"]
 [ext_resource type="Texture2D" uid="uid://cit47awkh531c" path="res://assets/sprites/walls/Tile1Sombra_PontaDupla.png" id="5_7lrji"]
 [ext_resource type="Texture2D" uid="uid://ce8u6q0sqifki" path="res://assets/sprites/walls/Tile1Sombra_PontaEsq.png" id="6_rssyh"]
@@ -96,7 +97,32 @@ color = Color(0, 0, 0, 1)
 
 [node name="Player" parent="." unique_id=849415694 instance=ExtResource("1_72ix8")]
 z_index = 1
-position = Vector2(428, 497)
+position = Vector2(409, 402)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=328970938]
+position = Vector2(349, 552)
+scale = Vector2(0.671875, 0.671875)
+texture = ExtResource("3_7lrji")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=2043570849]
+position = Vector2(474.99997, 554)
+scale = Vector2(0.671875, 0.671875)
+texture = ExtResource("3_7lrji")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=283479822]
+position = Vector2(314, 383)
+scale = Vector2(0.671875, 0.671875)
+texture = ExtResource("3_7lrji")
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=1423568846]
+position = Vector2(465, 253)
+scale = Vector2(0.671875, 0.671875)
+texture = ExtResource("3_7lrji")
+
+[node name="Sprite2D5" type="Sprite2D" parent="." unique_id=1583325659]
+position = Vector2(665, 446)
+scale = Vector2(0.671875, 0.671875)
+texture = ExtResource("3_7lrji")
 
 [node name="Enemy" parent="." unique_id=1246730130 instance=ExtResource("2_y0acb")]
 position = Vector2(467, 394)

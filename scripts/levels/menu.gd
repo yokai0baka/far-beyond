@@ -13,6 +13,10 @@ const FONT_SIZE_HOVER  := 42
 const COLOR_NORMAL := Color.WHITE
 const COLOR_HOVER  := Color.GREEN
 
+func _ready() -> void:
+	Global.time = 0
+	Global.end_game = false
+
 func _process(_delta: float) -> void:
 	highscore.text = "HIGHSCORE: " + str(Global.high_score)
 

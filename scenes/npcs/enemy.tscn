@@ -12,6 +12,9 @@ size = Vector2(28, 30)
 [sub_resource type="CircleShape2D" id="CircleShape2D_d7yn8"]
 radius = 28.01785
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_t5s0c"]
+radius = 61.81424
+
 [node name="Enemy" type="CharacterBody2D" unique_id=1246730130 groups=["Enemy"]]
 modulate = Color(0, 0.5176471, 1, 1)
 script = ExtResource("1_wk5vr")
@@ -42,5 +45,12 @@ metadata/_custom_type_script = "uid://c60devy7f1h3k"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1706284542]
 shape = SubResource("CircleShape2D_d7yn8")
 
+[node name="Killzone" type="Area2D" parent="." unique_id=662627938]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=312839433]
+shape = SubResource("CircleShape2D_t5s0c")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Killzone" to="." method="_on_killzone_body_entered"]
+[connection signal="body_exited" from="Killzone" to="." method="_on_killzone_body_exited"]

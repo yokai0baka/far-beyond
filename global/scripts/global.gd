@@ -2,6 +2,7 @@ extends Node
 
 var in_enemy_range = false
 var apply_kill_effect = false
+var end_game = false
 
 var time = 0
 var score = 0

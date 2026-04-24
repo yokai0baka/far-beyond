@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://db4ieol8hr0wy"]
 
-[ext_resource type="Script" uid="uid://cdm3pb0skoxjf" path="res://scripts/levels/options.gd" id="1_mpx5v"]
+[ext_resource type="Script" uid="uid://cu6t0mvk5ao8e" path="res://scripts/levels/credits.gd" id="1_m0gy5"]
 [ext_resource type="PackedScene" uid="uid://dxh83mc42rkwq" path="res://global/scenes/vfx.tscn" id="2_4c5nq"]
 [ext_resource type="Texture2D" uid="uid://cwyc3jqgr2kj8" path="res://assets/sprites/noise-effect.jpg" id="2_m0gy5"]
 [ext_resource type="FontFile" uid="uid://cxtib74wco5ue" path="res://assets/fonts/D3Craftism-DOeW.ttf" id="3_mpx5v"]
@@ -53,12 +53,12 @@ font_size = 32
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_ekron"]
+[sub_resource type="LabelSettings" id="LabelSettings_m0gy5"]
 font = ExtResource("3_mpx5v")
 font_size = 24
 
-[node name="Options" type="Node2D" unique_id=1315194617]
-script = ExtResource("1_mpx5v")
+[node name="Credits" type="Node2D" unique_id=1315194617]
+script = ExtResource("1_m0gy5")
 
 [node name="VFX" parent="." unique_id=275786583 instance=ExtResource("2_4c5nq")]
 
@@ -81,13 +81,13 @@ offset_left = 128.0
 offset_top = 128.0
 offset_right = 512.0
 offset_bottom = 191.0
-text = "OPTIONS"
+text = "CREDITS"
 label_settings = SubResource("LabelSettings_k3l6u")
 
 [node name="List" type="Label" parent="." unique_id=2039162054]
 offset_left = 160.0
 offset_top = 264.0
-offset_right = 854.0
+offset_right = 970.0
 offset_bottom = 453.0
 text = "ANDRE CIM             - LEVEL DESIGNER
 LUCIUS CONCIANI   - PROGRAMMER
@@ -95,20 +95,24 @@ RAFAEL CASSIO     - MUSICIAN
 SAMUEL CAPPOLA  - ARTIST"
 label_settings = SubResource("LabelSettings_pbjkc")
 
-[node name="ButtonBack" type="Button" parent="." unique_id=1741698165]
-offset_left = 128.0
-offset_top = 512.0
-offset_right = 184.0
-offset_bottom = 544.0
+[node name="ButtonBack" type="Button" parent="." unique_id=307688970]
+offset_left = 120.0
+offset_top = 504.0
+offset_right = 192.0
+offset_bottom = 552.0
 flat = true
 
-[node name="Label" type="Label" parent="ButtonBack" unique_id=794202630]
-layout_mode = 0
-offset_left = 8.0
-offset_right = 32.0
-offset_bottom = 23.0
+[node name="LabelBack" type="Label" parent="ButtonBack" unique_id=117503462]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 52.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "<-"
-label_settings = SubResource("LabelSettings_ekron")
+label_settings = SubResource("LabelSettings_m0gy5")
 
 [node name="Transition" type="ColorRect" parent="." unique_id=1384266003]
 offset_right = 1152.0
@@ -116,4 +120,6 @@ offset_bottom = 648.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
-[editable path="VFX"]
+[connection signal="mouse_entered" from="ButtonBack" to="." method="_on_button_back_mouse_entered"]
+[connection signal="mouse_exited" from="ButtonBack" to="." method="_on_button_back_mouse_exited"]
+[connection signal="pressed" from="ButtonBack" to="." method="_on_button_back_pressed"]
