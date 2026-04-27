@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://blw3iukyg61xk" path="res://scripts/states/state_machine.gd" id="3_kc8xr"]
 [ext_resource type="Script" uid="uid://r06cggvbmi5f" path="res://scripts/states/enemy/enemy_idle.gd" id="4_tj0q7"]
 [ext_resource type="Script" uid="uid://c60devy7f1h3k" path="res://scripts/states/enemy/enemy_follow.gd" id="5_d7yn8"]
+[ext_resource type="Texture2D" uid="uid://n2etsfsr2844" path="res://assets/sprites/white-circle-border.png" id="6_t5s0c"]
+[ext_resource type="Texture2D" uid="uid://c73hoa205p4cr" path="res://assets/sprites/full-circle.png" id="7_l0lj6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ebcy"]
 size = Vector2(28, 30)
@@ -15,11 +17,86 @@ radius = 24.020824
 [sub_resource type="CircleShape2D" id="CircleShape2D_t5s0c"]
 radius = 69.065186
 
+[sub_resource type="Animation" id="Animation_18hev"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fill:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fill:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_l0lj6"]
+resource_name = "prepare_attack"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fill:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fill:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.06383909, 0.06383909)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"trigger_attack"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_18hev"]
+_data = {
+&"RESET": SubResource("Animation_18hev"),
+&"prepare_attack": SubResource("Animation_l0lj6")
+}
+
 [node name="Enemy" type="CharacterBody2D" unique_id=1246730130 groups=["Enemy"]]
-modulate = Color(0, 0.5176471, 1, 1)
 script = ExtResource("1_wk5vr")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=788978003]
+modulate = Color(0, 0.08626795, 1, 1)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_1ebcy")
 
@@ -40,9 +117,9 @@ script = ExtResource("5_d7yn8")
 enemy = NodePath("../..")
 metadata/_custom_type_script = "uid://c60devy7f1h3k"
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1740708417]
+[node name="Deathzone" type="Area2D" parent="." unique_id=1740708417]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1706284542]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deathzone" unique_id=1706284542]
 shape = SubResource("CircleShape2D_d7yn8")
 
 [node name="Killzone" type="Area2D" parent="." unique_id=662627938]
@@ -50,7 +127,20 @@ shape = SubResource("CircleShape2D_d7yn8")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=312839433]
 shape = SubResource("CircleShape2D_t5s0c")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Killzone" unique_id=54149071]
+libraries/ = SubResource("AnimationLibrary_18hev")
+
+[node name="Border" type="Sprite2D" parent="Killzone" unique_id=1710279670]
+modulate = Color(1, 0, 0, 1)
+scale = Vector2(0.073, 0.07299999)
+texture = ExtResource("6_t5s0c")
+
+[node name="Fill" type="Sprite2D" parent="Killzone" unique_id=148593475]
+visible = false
+modulate = Color(1, 0, 0, 0.39215687)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("7_l0lj6")
+
+[connection signal="body_entered" from="Deathzone" to="." method="_on_deathzone_body_entered"]
 [connection signal="body_entered" from="Killzone" to="." method="_on_killzone_body_entered"]
 [connection signal="body_exited" from="Killzone" to="." method="_on_killzone_body_exited"]

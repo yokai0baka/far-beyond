@@ -97,7 +97,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="Player" parent="." unique_id=849415694 instance=ExtResource("1_72ix8")]
 z_index = 1
-position = Vector2(212, 504)
+position = Vector2(214, 551)
 
 [node name="Enemy" parent="." unique_id=1246730130 instance=ExtResource("2_y0acb")]
 position = Vector2(360, 500)

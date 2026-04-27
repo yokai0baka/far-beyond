@@ -2,6 +2,7 @@
 
 [ext_resource type="Shader" uid="uid://b3qxcd856ldrb" path="res://shaders/blur.gdshader" id="1_8u5de"]
 [ext_resource type="Script" uid="uid://cuilg5yqqf3ux" path="res://global/scripts/vfx.gd" id="1_hky1n"]
+[ext_resource type="Shader" uid="uid://b5u5d6ipxf7g1" path="res://shaders/chromatic_aberration.gdshader" id="3_r3ff7"]
 
 [sub_resource type="Environment" id="Environment_hky1n"]
 background_mode = 3
@@ -13,6 +14,12 @@ glow_hdr_scale = 3.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o5l0w"]
 shader = ExtResource("1_8u5de")
 shader_parameter/blur_amount = 1.50000007125
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hhibl"]
+shader = ExtResource("3_r3ff7")
+shader_parameter/r_displacement = Vector2(3, 0)
+shader_parameter/g_displacement = Vector2(0, 0)
+shader_parameter/b_displacement = Vector2(-3, 0)
 
 [node name="VFX" type="Node" unique_id=275786583]
 script = ExtResource("1_hky1n")
@@ -27,3 +34,11 @@ offset_left = -20.0
 offset_top = -20.0
 offset_right = 1169.0
 offset_bottom = 659.0
+
+[node name="ChromaticAberration" type="ColorRect" parent="." unique_id=1592132908]
+material = SubResource("ShaderMaterial_hhibl")
+offset_left = -22.0
+offset_top = -20.0
+offset_right = 1167.0
+offset_bottom = 659.0
+color = Color(0, 0, 0, 1)

@@ -126,28 +126,39 @@ label_settings = SubResource("LabelSettings_pbjkc")
 [node name="List2" type="Label" parent="." unique_id=1081550512]
 offset_left = 672.0
 offset_top = 320.0
-offset_right = 832.0
-offset_bottom = 461.0
+offset_right = 908.0
+offset_bottom = 557.0
 text = "BLOOM
 
-BLUR"
+BLUR
+
+CHROMATIC"
 label_settings = SubResource("LabelSettings_pbjkc")
 
 [node name="ButtonBloom" type="Button" parent="." unique_id=1912477235]
 modulate = Color(0, 1, 0, 1)
-offset_left = 864.0
+offset_left = 960.0
 offset_top = 312.0
-offset_right = 922.0
+offset_right = 1018.0
 offset_bottom = 370.0
 icon = ExtResource("4_pbjkc")
 flat = true
 
 [node name="ButtonBlur" type="Button" parent="." unique_id=1348641839]
 modulate = Color(0, 1, 0, 1)
-offset_left = 864.0
+offset_left = 960.0
 offset_top = 408.0
-offset_right = 922.0
+offset_right = 1018.0
 offset_bottom = 466.0
+icon = ExtResource("4_pbjkc")
+flat = true
+
+[node name="ButtonChromatic" type="Button" parent="." unique_id=2076058098]
+modulate = Color(0, 1, 0, 1)
+offset_left = 960.0
+offset_top = 504.0
+offset_right = 1018.0
+offset_bottom = 562.0
 icon = ExtResource("4_pbjkc")
 flat = true
 
@@ -178,6 +189,7 @@ color = Color(0, 0, 0, 0)
 
 [connection signal="pressed" from="ButtonBloom" to="." method="_on_button_bloom_pressed"]
 [connection signal="pressed" from="ButtonBlur" to="." method="_on_button_blur_pressed"]
+[connection signal="pressed" from="ButtonChromatic" to="." method="_on_button_chromatic_pressed"]
 [connection signal="mouse_entered" from="ButtonBack" to="." method="_on_button_back_mouse_entered"]
 [connection signal="mouse_exited" from="ButtonBack" to="." method="_on_button_back_mouse_exited"]
 [connection signal="pressed" from="ButtonBack" to="." method="_on_button_back_pressed"]

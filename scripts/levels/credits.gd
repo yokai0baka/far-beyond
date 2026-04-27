@@ -9,6 +9,9 @@ const FONT_SIZE_HOVER  := 42
 const COLOR_NORMAL := Color.WHITE
 const COLOR_HOVER  := Color.GREEN
 
+func _ready() -> void:
+	animation_player.play_backwards("fade")
+
 func on_hover(label: Label) -> void:
 	label.label_settings.font_size = FONT_SIZE_HOVER
 	label.label_settings.font_color = COLOR_HOVER
