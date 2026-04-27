@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Enemy
 
-var kill_cooldown = 2
+var kill_cooldown = 1
 var player_in_range = false
 
 func _physics_process(_delta: float) -> void:
@@ -13,12 +13,12 @@ func _process(delta: float) -> void:
 		if kill_cooldown <= 0:
 			Global.end_game = true
 	else:
-		kill_cooldown = 4
+		kill_cooldown = 1
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if "Player" in body.name:
 		Global.in_enemy_range = true
-		#check_attack()
+		check_attack()
 
 func _on_area_2d_body_exited(_body: Node2D) -> void:
 	Global.in_enemy_range = false

@@ -3,12 +3,13 @@
 [ext_resource type="Script" uid="uid://cxlovubjrr5mp" path="res://scripts/player/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://2008glo7louj" path="res://assets/sprites/alien.png" id="2_lvxji"]
 [ext_resource type="AudioStream" uid="uid://dst45gcy6osu7" path="res://assets/sounds/taunt.wav" id="2_npwbq"]
+[ext_resource type="AudioStream" uid="uid://bo2n7tlqcs3lc" path="res://assets/sounds/death-npc.wav" id="3_5gtgg"]
 [ext_resource type="Script" uid="uid://bai1rmvafwcgu" path="res://scripts/player/camera_shake.gd" id="3_c3xxp"]
 [ext_resource type="Shader" uid="uid://dbke7ly8o836i" path="res://shaders/hole.gdshader" id="3_gmlin"]
-[ext_resource type="AudioStream" uid="uid://dt0tdiombxhij" path="res://assets/sounds/death.mp3" id="3_v42im"]
 [ext_resource type="Texture2D" uid="uid://cwyc3jqgr2kj8" path="res://assets/sprites/noise-effect.jpg" id="4_tpg5x"]
 [ext_resource type="FontFile" uid="uid://cxtib74wco5ue" path="res://assets/fonts/D3Craftism-DOeW.ttf" id="6_npwbq"]
 [ext_resource type="FontFile" uid="uid://dtwv7ai1d1qr2" path="res://assets/fonts/PressStart2P-vaV7.ttf" id="9_5gtgg"]
+[ext_resource type="AudioStream" uid="uid://cc0pxc7glr6dx" path="res://assets/sounds/death-player.wav" id="10_h17s1"]
 
 [sub_resource type="Animation" id="Animation_gmlin"]
 length = 0.001
@@ -80,7 +81,7 @@ tracks/2/keys = {
 "clips": [{
 "end_offset": 0.09,
 "start_offset": 0.07,
-"stream": ExtResource("3_v42im")
+"stream": ExtResource("3_5gtgg")
 }],
 "times": PackedFloat32Array(0.03333334)
 }
@@ -94,7 +95,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dovo2"]
-size = Vector2(128, 128)
+size = Vector2(64, 116)
 
 [sub_resource type="Animation" id="Animation_75vfm"]
 length = 0.001
@@ -642,6 +643,18 @@ tracks/5/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_ugbui"]
 resource_name = "close"
@@ -718,6 +731,18 @@ tracks/5/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fcs02"]
 _data = {
@@ -757,6 +782,7 @@ modulate = Color(0, 1, 0, 1)
 texture = ExtResource("2_lvxji")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=353487865]
+position = Vector2(0, 0.5)
 scale = Vector2(0.25, 0.25)
 shape = SubResource("RectangleShape2D_dovo2")
 
@@ -957,6 +983,9 @@ pivot_offset = Vector2(111, 9)
 text = "PRESS ENTER"
 label_settings = SubResource("LabelSettings_fcs02")
 horizontal_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Camera2D/EndScreen" unique_id=312384803]
+stream = ExtResource("10_h17s1")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=2107533637]
 

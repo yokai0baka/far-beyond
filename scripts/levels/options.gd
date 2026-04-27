@@ -33,10 +33,10 @@ func _on_button_bloom_pressed() -> void:
 
 func _on_button_blur_pressed() -> void:
 	if Global.blur_active:
-		button_bloom.modulate = Color(1, 1, 1)
+		button_blur.modulate = Color(1, 1, 1)
 		Global.blur_active = false
 	else:
-		button_bloom.modulate = Color(0, 1, 0)
+		button_blur.modulate = Color(0, 1, 0)
 		Global.blur_active = true
 
 func _on_button_back_mouse_entered() -> void: on_hover(label_back)

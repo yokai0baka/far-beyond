@@ -25,7 +25,7 @@ func _physics_process(_delta: float) -> void:
 func _process(_delta: float) -> void:
 	$Camera2D/HUD/LabelScore.text = "SCORE: " + str(Global.score)
 	$Camera2D/HUD/LabelTime.text = "Time: " + str(roundi(Global.time))
-	#kill()
+	kill()
 	
 	if Global.end_game:
 		set_physics_process(false)

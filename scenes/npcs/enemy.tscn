@@ -10,10 +10,10 @@
 size = Vector2(28, 30)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d7yn8"]
-radius = 28.01785
+radius = 24.020824
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t5s0c"]
-radius = 61.81424
+radius = 69.065186
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1246730130 groups=["Enemy"]]
 modulate = Color(0, 0.5176471, 1, 1)
