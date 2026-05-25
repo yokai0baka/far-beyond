@@ -15,10 +15,12 @@ const COLOR_HOVER  := Color.GREEN
 
 # Reset some game vars
 func _ready() -> void:
-	animation_player.play_backwards("fade")
+	Global.return_music()
 	Global.score = 0
 	Global.time = 0
 	Global.end_game = false
+	animation_player.play_backwards("fade")
+
 
 # Set highscore on screen
 func _process(_delta: float) -> void:
@@ -41,7 +43,9 @@ func _on_button_start_pressed() -> void:
 	animation_player.play("fade")
 	await get_tree().create_timer(1).timeout
 	await get_tree().process_frame
-	get_tree().change_scene_to_file("res://scenes/levels/main.tscn")
+	get_tree().change_scene_to_file("res://scenes/levels/stage_001.tscn")
+	MusicMenu.stop()
+	MusicInGame.play()
 
 # Apply color and font changes / Active fade to next scene
 func _on_button_options_mouse_entered(): on_hover(label_options)

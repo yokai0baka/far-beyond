@@ -2,9 +2,8 @@
 
 [ext_resource type="FontFile" uid="uid://cxtib74wco5ue" path="res://assets/fonts/D3Craftism-DOeW.ttf" id="1_g3w80"]
 [ext_resource type="Script" uid="uid://clvk0x5s8soc6" path="res://scripts/levels/menu.gd" id="1_k3l6u"]
-[ext_resource type="Texture2D" uid="uid://cwyc3jqgr2kj8" path="res://assets/sprites/noise-effect.jpg" id="3_tmk6g"]
+[ext_resource type="Texture2D" uid="uid://cwyc3jqgr2kj8" path="res://assets/sprites/effects/noise-effect.jpg" id="3_tmk6g"]
 [ext_resource type="PackedScene" uid="uid://dxh83mc42rkwq" path="res://global/scenes/vfx.tscn" id="4_oosx4"]
-[ext_resource type="AudioStream" uid="uid://bx3fcfbcgidpc" path="res://assets/sounds/menu.wav" id="5_apwh8"]
 
 [sub_resource type="Animation" id="Animation_oosx4"]
 length = 0.001
@@ -72,15 +71,20 @@ script = ExtResource("1_k3l6u")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1126352361]
 libraries/ = SubResource("AnimationLibrary_oosx4")
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1997754881]
+position = Vector2(584, 328)
+
 [node name="Background" type="ColorRect" parent="." unique_id=504307318]
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = -1200.0
+offset_top = -809.0
+offset_right = 2640.0
+offset_bottom = 1351.0
 color = Color(0, 0, 0, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1545309071]
 modulate = Color(1, 1, 1, 0.05882353)
-position = Vector2(577.7778, 324)
-scale = Vector2(0.30092594, 0.3)
+position = Vector2(720, 270.4999)
+scale = Vector2(1, 0.999537)
 texture = ExtResource("3_tmk6g")
 
 [node name="Title" type="Label" parent="." unique_id=523008366]
@@ -176,14 +180,12 @@ text = "CREDITS"
 label_settings = SubResource("LabelSettings_g3w80")
 
 [node name="Transition" type="ColorRect" parent="." unique_id=1384266003]
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = -1200.0
+offset_top = -809.0
+offset_right = 2639.9998
+offset_bottom = 1350.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=570065693]
-stream = ExtResource("5_apwh8")
-autoplay = true
 
 [connection signal="mouse_entered" from="ButtonStart" to="." method="_on_button_start_mouse_entered"]
 [connection signal="mouse_exited" from="ButtonStart" to="." method="_on_button_start_mouse_exited"]

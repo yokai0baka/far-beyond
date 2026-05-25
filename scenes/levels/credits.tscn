@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cu6t0mvk5ao8e" path="res://scripts/levels/credits.gd" id="1_m0gy5"]
 [ext_resource type="PackedScene" uid="uid://dxh83mc42rkwq" path="res://global/scenes/vfx.tscn" id="2_4c5nq"]
-[ext_resource type="Texture2D" uid="uid://cwyc3jqgr2kj8" path="res://assets/sprites/noise-effect.jpg" id="2_m0gy5"]
+[ext_resource type="Texture2D" uid="uid://cwyc3jqgr2kj8" path="res://assets/sprites/effects/noise-effect.jpg" id="2_m0gy5"]
 [ext_resource type="FontFile" uid="uid://cxtib74wco5ue" path="res://assets/fonts/D3Craftism-DOeW.ttf" id="3_mpx5v"]
 
 [sub_resource type="Animation" id="Animation_oosx4"]
@@ -65,15 +65,20 @@ script = ExtResource("1_m0gy5")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1126352361]
 libraries/ = SubResource("AnimationLibrary_oosx4")
 
-[node name="Background" type="ColorRect" parent="." unique_id=504307318]
-offset_right = 1152.0
-offset_bottom = 648.0
+[node name="Camera2D" type="Camera2D" parent="." unique_id=853949656]
+position = Vector2(576, 328)
+
+[node name="Background" type="ColorRect" parent="." unique_id=1253089108]
+offset_left = -1200.0
+offset_top = -809.0
+offset_right = 2640.0
+offset_bottom = 1351.0
 color = Color(0, 0, 0, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1545309071]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1639297693]
 modulate = Color(1, 1, 1, 0.05882353)
-position = Vector2(577.7778, 324)
-scale = Vector2(0.30092594, 0.3)
+position = Vector2(720, 270.4999)
+scale = Vector2(1, 0.999537)
 texture = ExtResource("2_m0gy5")
 
 [node name="Title" type="Label" parent="." unique_id=523008366]
@@ -115,8 +120,10 @@ text = "<-"
 label_settings = SubResource("LabelSettings_m0gy5")
 
 [node name="Transition" type="ColorRect" parent="." unique_id=1384266003]
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = -1200.0
+offset_top = -808.0
+offset_right = 2640.0
+offset_bottom = 1350.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 

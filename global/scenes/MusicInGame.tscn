@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ceq2n8lh1smxb"]
+
+[ext_resource type="AudioStream" uid="uid://cdpqohe12if01" path="res://assets/musics/InGame_1v.wav" id="1_obdyg"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" unique_id=1090215917]
+stream = ExtResource("1_obdyg")

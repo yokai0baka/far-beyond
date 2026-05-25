@@ -1,15 +1,34 @@
 [gd_scene format=3 uid="uid://b8hp02nmd8rw5"]
 
 [ext_resource type="Script" uid="uid://cxlovubjrr5mp" path="res://scripts/player/player.gd" id="1_dovo2"]
-[ext_resource type="Texture2D" uid="uid://2008glo7louj" path="res://assets/sprites/alien.png" id="2_lvxji"]
 [ext_resource type="AudioStream" uid="uid://dst45gcy6osu7" path="res://assets/sounds/taunt.wav" id="2_npwbq"]
 [ext_resource type="AudioStream" uid="uid://bo2n7tlqcs3lc" path="res://assets/sounds/death-npc.wav" id="3_5gtgg"]
 [ext_resource type="Script" uid="uid://bai1rmvafwcgu" path="res://scripts/player/camera_shake.gd" id="3_c3xxp"]
 [ext_resource type="Shader" uid="uid://dbke7ly8o836i" path="res://shaders/hole.gdshader" id="3_gmlin"]
-[ext_resource type="Texture2D" uid="uid://cwyc3jqgr2kj8" path="res://assets/sprites/noise-effect.jpg" id="4_tpg5x"]
-[ext_resource type="FontFile" uid="uid://cxtib74wco5ue" path="res://assets/fonts/D3Craftism-DOeW.ttf" id="6_npwbq"]
+[ext_resource type="Texture2D" uid="uid://cd46he3c7n1ck" path="res://assets/sprites/alien/CorvusRun1.png" id="3_je7p5"]
+[ext_resource type="Texture2D" uid="uid://c86y7txomcsw5" path="res://assets/sprites/alien/CorvusRun2.png" id="4_myrg7"]
+[ext_resource type="Texture2D" uid="uid://cwyc3jqgr2kj8" path="res://assets/sprites/effects/noise-effect.jpg" id="4_tpg5x"]
+[ext_resource type="Texture2D" uid="uid://ys5trugloucq" path="res://assets/sprites/alien/CorvusRun3.png" id="5_kvlxm"]
+[ext_resource type="Texture2D" uid="uid://coxefpf0jr744" path="res://assets/sprites/alien/CorvusRun4.png" id="6_uf5tr"]
+[ext_resource type="Texture2D" uid="uid://c0a6fvcw0wpco" path="res://assets/sprites/alien/CorvusRun5.png" id="7_lgqa7"]
+[ext_resource type="Texture2D" uid="uid://d2gb5ye4yjlg5" path="res://assets/sprites/alien/CorvusRun6.png" id="8_8ydkj"]
+[ext_resource type="Texture2D" uid="uid://ca5mvlr1v41t2" path="res://assets/sprites/alien/CorvusRun7.png" id="9_3j4b4"]
 [ext_resource type="FontFile" uid="uid://dtwv7ai1d1qr2" path="res://assets/fonts/PressStart2P-vaV7.ttf" id="9_5gtgg"]
 [ext_resource type="AudioStream" uid="uid://cc0pxc7glr6dx" path="res://assets/sounds/death-player.wav" id="10_h17s1"]
+[ext_resource type="Texture2D" uid="uid://db7dsuj373wkd" path="res://assets/sprites/HUD/time/Huds1.png" id="14_iqsei"]
+[ext_resource type="Texture2D" uid="uid://cc0eh2apbwp2k" path="res://assets/sprites/HUD/time/Huds2.png" id="15_tffgl"]
+[ext_resource type="Texture2D" uid="uid://ddjudcwaqbedd" path="res://assets/sprites/HUD/time/Huds3.png" id="16_pk8ii"]
+[ext_resource type="Texture2D" uid="uid://cany73h8v3hk2" path="res://assets/sprites/HUD/time/Huds4.png" id="17_5mf0n"]
+[ext_resource type="Texture2D" uid="uid://bsnumxylq48kr" path="res://assets/sprites/HUD/time/Huds5.png" id="18_4hvnv"]
+[ext_resource type="Texture2D" uid="uid://7bfjfy00426w" path="res://assets/sprites/HUD/time/Huds6.png" id="19_bbmj2"]
+[ext_resource type="Texture2D" uid="uid://f32o34bsbkv3" path="res://assets/sprites/HUD/time/Huds7.png" id="20_kxw46"]
+[ext_resource type="Texture2D" uid="uid://cwynvi22myq6d" path="res://assets/sprites/HUD/time/Huds8.png" id="21_8qxvo"]
+[ext_resource type="Texture2D" uid="uid://bsxdm5oft5fmx" path="res://assets/sprites/HUD/time/Huds9.png" id="22_5q8fn"]
+[ext_resource type="Texture2D" uid="uid://cjwatlgaulovo" path="res://assets/sprites/HUD/time/Huds10.png" id="23_wva7c"]
+[ext_resource type="Texture2D" uid="uid://cqb2cvvgj58ns" path="res://assets/sprites/HUD/time/Huds11.png" id="24_7obkq"]
+[ext_resource type="Texture2D" uid="uid://blpdqam803j7y" path="res://assets/sprites/HUD/time/Huds12.png" id="25_vo27k"]
+[ext_resource type="Texture2D" uid="uid://drrtbxlusstx2" path="res://assets/sprites/HUD/time/Huds13.png" id="26_genst"]
+[ext_resource type="Texture2D" uid="uid://bv0dhd44vcouf" path="res://assets/sprites/HUD/time/Huds14.png" id="27_niom3"]
 
 [sub_resource type="Animation" id="Animation_gmlin"]
 length = 0.001
@@ -36,18 +55,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.05]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../../GPUParticles2D:emitting")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_p47bc"]
@@ -121,18 +128,6 @@ tracks/3/keys = {
 "method": &"frenzy"
 }]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../../GPUParticles2D:emitting")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 2.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p47bc"]
 _data = {
@@ -141,13 +136,45 @@ _data = {
 &"taunt": SubResource("Animation_lvxji")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dovo2"]
-size = Vector2(64, 116)
+[sub_resource type="SpriteFrames" id="SpriteFrames_yj68g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_je7p5")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_je7p5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_myrg7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_kvlxm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uf5tr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_lgqa7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_8ydkj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_3j4b4")
+}],
+"loop": true,
+"name": &"running",
+"speed": 12.0
+}]
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h17s1"]
-lifetime_randomness = 0.12
-particle_flag_disable_z = true
-gravity = Vector3(0, 0, 0)
+[sub_resource type="CircleShape2D" id="CircleShape2D_h17s1"]
+radius = 64.28063
 
 [sub_resource type="Animation" id="Animation_75vfm"]
 length = 0.001
@@ -219,14 +246,62 @@ shader_parameter/screen_height = 648.0
 shader_parameter/penumbra = 0.05
 
 [sub_resource type="LabelSettings" id="LabelSettings_v42im"]
-font = ExtResource("6_npwbq")
-font_size = 21
-font_color = Color(0, 1, 0, 1)
+font = ExtResource("9_5gtgg")
+font_color = Color(0, 0.5019608, 0, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ttakn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_iqsei")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_tffgl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_pk8ii")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_5mf0n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_4hvnv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_bbmj2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_kxw46")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_8qxvo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_5q8fn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_wva7c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_7obkq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_vo27k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_genst")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_niom3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
 
 [sub_resource type="LabelSettings" id="LabelSettings_npwbq"]
-font = ExtResource("6_npwbq")
-font_size = 21
-font_color = Color(0, 1, 0, 1)
+font = ExtResource("9_5gtgg")
+font_color = Color(0, 0.5019608, 0, 1)
 
 [sub_resource type="Animation" id="Animation_je7p5"]
 length = 0.001
@@ -650,7 +725,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Label2:visible")
+tracks/2/path = NodePath("HighscoreEnd:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -662,7 +737,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Label3:visible")
+tracks/3/path = NodePath("RunTimeEnd:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -674,7 +749,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Label4:visible")
+tracks/4/path = NodePath("Label2:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -738,7 +813,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Label2:visible")
+tracks/2/path = NodePath("HighscoreEnd:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -750,7 +825,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Label3:visible")
+tracks/3/path = NodePath("RunTimeEnd:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -762,7 +837,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Label4:visible")
+tracks/4/path = NodePath("Label2:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -819,7 +894,7 @@ font = ExtResource("9_5gtgg")
 font_color = Color(0, 1, 0, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_npwbq"]
-radius = 32.984844
+radius = 42.190044
 
 [node name="Player" type="CharacterBody2D" unique_id=849415694 groups=["Player"]]
 script = ExtResource("1_dovo2")
@@ -829,23 +904,17 @@ root_node = NodePath("../Camera2D/Vision")
 libraries/ = SubResource("AnimationLibrary_p47bc")
 autoplay = &"idle"
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1767352157]
-modulate = Color(0, 1, 0, 1)
-texture = ExtResource("2_lvxji")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1430878971]
+scale = Vector2(0.8, 0.7999999)
+sprite_frames = SubResource("SpriteFrames_yj68g")
+animation = &"running"
+autoplay = "running"
+frame_progress = 0.26563668
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=353487865]
 position = Vector2(0, 0.5)
 scale = Vector2(0.25, 0.25)
-shape = SubResource("RectangleShape2D_dovo2")
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1782731584]
-modulate = Color(0, 1, 0, 0.5882353)
-emitting = false
-amount = 6
-texture = ExtResource("2_lvxji")
-lifetime = 0.5
-interp_to_end = 0.1
-process_material = SubResource("ParticleProcessMaterial_h17s1")
+shape = SubResource("CircleShape2D_h17s1")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1603391986]
 volume_db = 5.0
@@ -879,7 +948,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="Noise" type="Sprite2D" parent="Camera2D" unique_id=1003673461]
 modulate = Color(1, 1, 1, 0.05882353)
-scale = Vector2(0.14814815, 0.14814815)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("4_tpg5x")
 
 [node name="HUD" type="Control" parent="Camera2D" unique_id=1427133112]
@@ -892,18 +961,26 @@ offset_bottom = -96.0
 
 [node name="LabelScore" type="Label" parent="Camera2D/HUD" unique_id=708715731]
 layout_mode = 0
-offset_right = 109.0
-offset_bottom = 30.0
+offset_top = 5.0
+offset_right = 112.0
+offset_bottom = 35.0
 text = "SCORE: "
 label_settings = SubResource("LabelSettings_v42im")
 
+[node name="SpriteTime" type="AnimatedSprite2D" parent="Camera2D/HUD" unique_id=1053144414]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(19, 45)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_ttakn")
+autoplay = "default"
+frame_progress = 0.12311686
+
 [node name="LabelTime" type="Label" parent="Camera2D/HUD" unique_id=919664627]
 layout_mode = 0
-offset_left = 1.6747284
-offset_top = 31.956139
-offset_right = 71.67473
-offset_bottom = 61.95614
-text = "TIME:"
+offset_left = 45.0
+offset_top = 40.0
+offset_right = 106.0
+offset_bottom = 70.0
 label_settings = SubResource("LabelSettings_npwbq")
 
 [node name="CassinoEffect" type="Control" parent="Camera2D" unique_id=979698231]
@@ -1003,7 +1080,7 @@ EXTERMINATED"
 label_settings = SubResource("LabelSettings_fm80t")
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="Camera2D/EndScreen" unique_id=1581024371]
+[node name="HighscoreEnd" type="Label" parent="Camera2D/EndScreen" unique_id=1581024371]
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -1018,7 +1095,7 @@ text = "HIGHSCORE: "
 label_settings = SubResource("LabelSettings_gx1jg")
 horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="Camera2D/EndScreen" unique_id=1250697307]
+[node name="RunTimeEnd" type="Label" parent="Camera2D/EndScreen" unique_id=1250697307]
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -1033,7 +1110,7 @@ text = "RUN DURATION: "
 label_settings = SubResource("LabelSettings_ugbui")
 horizontal_alignment = 1
 
-[node name="Label4" type="Label" parent="Camera2D/EndScreen" unique_id=1996963988]
+[node name="Label2" type="Label" parent="Camera2D/EndScreen" unique_id=1996963988]
 visible = false
 layout_mode = 1
 anchors_preset = -1
