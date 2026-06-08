@@ -5,7 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://dkbdp1o3to20w" path="res://scenes/npcs/enemy.tscn" id="3_gilj7"]
 [ext_resource type="Texture2D" uid="uid://s5we4brx2wp5" path="res://assets/sprites/effects/rounded-square.png" id="4_q37e8"]
 [ext_resource type="PackedScene" uid="uid://d1aohwfv2w8od" path="res://global/scenes/TileWall.tscn" id="5_m0txs"]
-[ext_resource type="PackedScene" uid="uid://gigjr1gqlyrc" path="res://global/scenes/door.tscn" id="6_luimt"]
+[ext_resource type="PackedScene" uid="uid://gigjr1gqlyrc" path="res://global/scenes/Door.tscn" id="6_luimt"]
+[ext_resource type="PackedScene" uid="uid://bottacydljbs3" path="res://global/scenes/KeyCard.tscn" id="7_gilj7"]
+[ext_resource type="PackedScene" uid="uid://bkk4pf8qn77gc" path="res://global/scenes/LockedDoor.tscn" id="8_q37e8"]
 
 [sub_resource type="Animation" id="Animation_u81e1"]
 length = 0.001
@@ -131,5 +133,13 @@ layer_0/tile_data = PackedInt32Array(-393229, 0, 1342177280, -393226, 0, 8053063
 [node name="Door" parent="." unique_id=1448745152 instance=ExtResource("6_luimt")]
 position = Vector2(229.99998, 438)
 scale = Vector2(2.0399997, 1)
+
+[node name="KeyCard" parent="." unique_id=127927094 instance=ExtResource("7_gilj7")]
+position = Vector2(1323, 299)
+rotation = 1.5707964
+
+[node name="LockedDoor" parent="." unique_id=934156182 instance=ExtResource("8_q37e8")]
+position = Vector2(230, 387)
+scale = Vector2(2.2000003, 0.68)
 
 [editable path="Stage/TileWall"]

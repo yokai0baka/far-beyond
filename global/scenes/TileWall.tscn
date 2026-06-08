@@ -8,6 +8,7 @@
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h7c4w"]
 texture = ExtResource("1_1tc1j")
 texture_region_size = Vector2i(32, 34)
+0:0/animation_speed = 10.0
 0:0/animation_frame_0/duration = 1.0
 0:0/animation_frame_1/duration = 1.0
 0:0/animation_frame_2/duration = 1.0
@@ -22,6 +23,7 @@ texture_region_size = Vector2i(32, 34)
 0:0/animation_frame_11/duration = 1.0
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -17, 16, -17, 16, 17, -16, 17)
+0:1/animation_speed = 10.0
 0:1/animation_frame_0/duration = 1.0
 0:1/animation_frame_1/duration = 1.0
 0:1/animation_frame_2/duration = 1.0
@@ -49,6 +51,7 @@ sources/0 = SubResource("TileSetAtlasSource_h7c4w")
 texture = ExtResource("2_h7c4w")
 texture_region_size = Vector2i(32, 34)
 0:0/animation_columns = 12
+0:0/animation_speed = 10.0
 0:0/animation_frame_0/duration = 1.0
 0:0/animation_frame_1/duration = 1.0
 0:0/animation_frame_2/duration = 1.0

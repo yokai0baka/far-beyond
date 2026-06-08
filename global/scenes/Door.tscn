@@ -61,10 +61,10 @@ libraries/ = SubResource("AnimationLibrary_m5x0j")
 [node name="ColorRect" type="ColorRect" parent="AnimationFade" unique_id=91283681]
 modulate = Color(1, 1, 1, 0)
 z_index = 2
-offset_left = -999.0
-offset_top = -1000.0
-offset_right = 1001.0
-offset_bottom = 1000.0
+offset_left = -8574.0
+offset_top = -3767.0
+offset_right = 8576.0
+offset_bottom = 3767.0
 color = Color(0, 0, 0, 1)
 
 [connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]

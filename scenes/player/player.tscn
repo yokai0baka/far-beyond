@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://blpdqam803j7y" path="res://assets/sprites/HUD/time/Huds12.png" id="25_vo27k"]
 [ext_resource type="Texture2D" uid="uid://drrtbxlusstx2" path="res://assets/sprites/HUD/time/Huds13.png" id="26_genst"]
 [ext_resource type="Texture2D" uid="uid://bv0dhd44vcouf" path="res://assets/sprites/HUD/time/Huds14.png" id="27_niom3"]
+[ext_resource type="PackedScene" uid="uid://bottacydljbs3" path="res://global/scenes/KeyCard.tscn" id="29_pk8ii"]
 [ext_resource type="Script" uid="uid://epgl2mee63gb" path="res://scripts/player/trail.gd" id="30_iqsei"]
 
 [sub_resource type="Animation" id="Animation_gmlin"]
@@ -1042,6 +1043,12 @@ offset_top = 40.0
 offset_right = 106.0
 offset_bottom = 70.0
 label_settings = SubResource("LabelSettings_npwbq")
+
+[node name="KeyCard" parent="Camera2D/HUD" unique_id=127927094 instance=ExtResource("29_pk8ii")]
+visible = false
+position = Vector2(24, 222)
+rotation = 0.2617994
+script = null
 
 [node name="CassinoEffect" type="Control" parent="Camera2D" unique_id=979698231]
 layout_mode = 3

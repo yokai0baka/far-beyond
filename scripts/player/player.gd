@@ -15,6 +15,7 @@ class_name Player
 @onready var label_time: Label = $Camera2D/HUD/LabelTime
 @onready var highscore_end: Label = $Camera2D/EndScreen/HighscoreEnd
 @onready var run_time_end: Label = $Camera2D/EndScreen/RunTimeEnd
+@onready var key_card: Sprite2D = $Camera2D/HUD/KeyCard
 
 var SPEED = 250.0
 
@@ -41,8 +42,8 @@ func _process(_delta: float) -> void:
 	label_time.text = str(roundi(Global.time))
 	highscore_end.text = "SCORE: " + str(Global.score)
 	run_time_end.text = "Time: " + str(roundi(Global.time))
-	#cassino_label = randi_range(1, 3)
 	kill()
+	check_key(Global.has_key)
 	
 	if Global.end_game:
 		MusicInGameCalm.stop()
@@ -73,6 +74,12 @@ func frenzy(amount: float) -> void:
 		SPEED = 450.0
 	await get_tree().create_timer(4).timeout
 	SPEED = 250.0
+
+func check_key(has_key_card: bool) -> void:
+	if has_key_card:
+		key_card.visible = true
+	else:
+		key_card.visible = false
 
 # Change music volume
 func inAction():

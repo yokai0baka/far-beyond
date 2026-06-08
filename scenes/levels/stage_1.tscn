@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dkbdp1o3to20w" path="res://scenes/npcs/enemy.tscn" id="4_x18u4"]
 [ext_resource type="Texture2D" uid="uid://s5we4brx2wp5" path="res://assets/sprites/effects/rounded-square.png" id="5_5c8g7"]
 [ext_resource type="PackedScene" uid="uid://d1aohwfv2w8od" path="res://global/scenes/TileWall.tscn" id="6_00b7e"]
-[ext_resource type="PackedScene" uid="uid://gigjr1gqlyrc" path="res://global/scenes/door.tscn" id="7_fivxl"]
+[ext_resource type="PackedScene" uid="uid://gigjr1gqlyrc" path="res://global/scenes/Door.tscn" id="7_fivxl"]
 
 [sub_resource type="Animation" id="Animation_u81e1"]
 length = 0.001

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bottacydljbs3"]
+
+[ext_resource type="Texture2D" uid="uid://s5we4brx2wp5" path="res://assets/sprites/effects/rounded-square.png" id="1_dmat7"]
+[ext_resource type="Script" uid="uid://djqq4qlgutmq0" path="res://global/scripts/key_card.gd" id="2_njl1l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dmat7"]
+size = Vector2(42.06349, 42)
+
+[node name="KeyCard" type="Sprite2D" unique_id=127927094]
+modulate = Color(1, 0.8156863, 0, 1)
+texture_filter = 1
+scale = Vector2(0.52000004, 0.32000002)
+texture = ExtResource("1_dmat7")
+script = ExtResource("2_njl1l")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2087902506]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2141682101]
+shape = SubResource("RectangleShape2D_dmat7")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

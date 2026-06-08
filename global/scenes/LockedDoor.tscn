@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bkk4pf8qn77gc"]
+
+[ext_resource type="Texture2D" uid="uid://s5we4brx2wp5" path="res://assets/sprites/effects/rounded-square.png" id="1_6nkum"]
+[ext_resource type="Script" uid="uid://ce073gmwowlqw" path="res://global/scripts/locked_door.gd" id="2_rja1x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6nkum"]
+size = Vector2(42.696632, 44.000004)
+
+[node name="LockedDoor" type="Sprite2D" unique_id=934156182]
+modulate = Color(1, 0.8156863, 0, 1)
+scale = Vector2(3.56, 1)
+texture = ExtResource("1_6nkum")
+script = ExtResource("2_rja1x")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1823122860]
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=776976585]
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_6nkum")

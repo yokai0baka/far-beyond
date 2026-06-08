@@ -1,6 +1,7 @@
 extends Node
 
 # Detection variables control
+var has_key = false
 var in_enemy_range = false
 var apply_kill_effect = false
 var end_game = false

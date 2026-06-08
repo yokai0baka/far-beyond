@@ -22,7 +22,6 @@ func _process(_delta: float) -> void:
 	if Global.end_game:
 		set_physics_process(false)
 
-# Read MF
 func trigger_attack():
 	Global.end_game = true
 
