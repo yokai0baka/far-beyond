@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bcyvooaykrotk"]
+
+[ext_resource type="AudioStream" uid="uid://bgh3u28mtfuq3" path="res://assets/musics/Action1.wav" id="1_opxnj"]
+
+[node name="Action" type="AudioStreamPlayer2D" unique_id=1090215917]
+stream = ExtResource("1_opxnj")
+volume_db = -80.0

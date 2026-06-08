@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ceq2n8lh1smxb"]
+
+[ext_resource type="AudioStream" uid="uid://dlfen7wikgt8v" path="res://assets/musics/Calm1.wav" id="1_800b6"]
+
+[node name="Calm" type="AudioStreamPlayer2D" unique_id=1090215917]
+stream = ExtResource("1_800b6")

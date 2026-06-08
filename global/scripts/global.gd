@@ -4,6 +4,10 @@ extends Node
 var in_enemy_range = false
 var apply_kill_effect = false
 var end_game = false
+var trail_effect = false
+var increase_bloom = false
+
+var levels = randi_range(1, 2)
 
 # Points
 var time = 0
@@ -25,6 +29,14 @@ func check_score():
 		high_score = score
 	else:
 		score = score
+
+func check_effect():
+	trail_effect = true
+	increase_bloom = true
+	if trail_effect:
+		await get_tree().create_timer(2.0).timeout
+		trail_effect = false
+		increase_bloom = false
 
 func return_music():
 	if end_game:

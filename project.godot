@@ -18,7 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*uid://cph203p774nss"
-MusicInGame="*uid://ceq2n8lh1smxb"
+MusicInGameCalm="*uid://ceq2n8lh1smxb"
+MusicInGameAction="*uid://bcyvooaykrotk"
 MusicMenu="*uid://lchqc00mijdm"
 
 [display]

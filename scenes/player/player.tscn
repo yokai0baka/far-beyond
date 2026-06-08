@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://ca5mvlr1v41t2" path="res://assets/sprites/alien/CorvusRun7.png" id="9_3j4b4"]
 [ext_resource type="FontFile" uid="uid://dtwv7ai1d1qr2" path="res://assets/fonts/PressStart2P-vaV7.ttf" id="9_5gtgg"]
 [ext_resource type="AudioStream" uid="uid://cc0pxc7glr6dx" path="res://assets/sounds/death-player.wav" id="10_h17s1"]
+[ext_resource type="Script" uid="uid://bsl1ele78plet" path="res://scripts/player/fade_trail.gd" id="10_tffgl"]
 [ext_resource type="Texture2D" uid="uid://db7dsuj373wkd" path="res://assets/sprites/HUD/time/Huds1.png" id="14_iqsei"]
 [ext_resource type="Texture2D" uid="uid://cc0eh2apbwp2k" path="res://assets/sprites/HUD/time/Huds2.png" id="15_tffgl"]
 [ext_resource type="Texture2D" uid="uid://ddjudcwaqbedd" path="res://assets/sprites/HUD/time/Huds3.png" id="16_pk8ii"]
@@ -29,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://blpdqam803j7y" path="res://assets/sprites/HUD/time/Huds12.png" id="25_vo27k"]
 [ext_resource type="Texture2D" uid="uid://drrtbxlusstx2" path="res://assets/sprites/HUD/time/Huds13.png" id="26_genst"]
 [ext_resource type="Texture2D" uid="uid://bv0dhd44vcouf" path="res://assets/sprites/HUD/time/Huds14.png" id="27_niom3"]
+[ext_resource type="Script" uid="uid://epgl2mee63gb" path="res://scripts/player/trail.gd" id="30_iqsei"]
 
 [sub_resource type="Animation" id="Animation_gmlin"]
 length = 0.001
@@ -121,7 +123,7 @@ tracks/3/path = NodePath("../..")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.033333335),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -172,6 +174,60 @@ animations = [{
 "name": &"running",
 "speed": 12.0
 }]
+
+[sub_resource type="Animation" id="Animation_tffgl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_pk8ii"]
+resource_name = "rainbow"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.4892708, 1, 0, 1), Color(0, 0.9946492, 1, 1), Color(0.46939278, 0, 1, 1), Color(1, 0, 0.026766777, 1), Color(0.4892708, 1, 0, 1), Color(0, 0.9946492, 1, 1), Color(0.46939278, 0, 1, 1), Color(1, 0, 0.026766777, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"inAction"
+}, {
+"args": [],
+"method": &"outOffAction"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5mf0n"]
+_data = {
+&"RESET": SubResource("Animation_tffgl"),
+&"rainbow": SubResource("Animation_pk8ii")
+}
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h17s1"]
 radius = 64.28063
@@ -909,7 +965,11 @@ scale = Vector2(0.8, 0.7999999)
 sprite_frames = SubResource("SpriteFrames_yj68g")
 animation = &"running"
 autoplay = "running"
-frame_progress = 0.26563668
+script = ExtResource("10_tffgl")
+
+[node name="AnimationRainbow" type="AnimationPlayer" parent="AnimatedSprite2D" unique_id=1675649814]
+root_node = NodePath("../../SpriteTrail")
+libraries/ = SubResource("AnimationLibrary_5mf0n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=353487865]
 position = Vector2(0, 0.5)
@@ -1057,10 +1117,10 @@ libraries/ = SubResource("AnimationLibrary_fcs02")
 visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = -284.0
-offset_top = -160.0
-offset_right = 284.0
-offset_bottom = 160.0
+offset_left = -575.1
+offset_top = -324.0
+offset_right = 575.1
+offset_bottom = 324.0
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="Camera2D/EndScreen" unique_id=348233422]
@@ -1132,5 +1192,9 @@ stream = ExtResource("10_h17s1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1700287920]
 shape = SubResource("CircleShape2D_npwbq")
+
+[node name="SpriteTrail" type="Node2D" parent="." unique_id=1686621856]
+modulate = Color(0.4892708, 1, 0, 1)
+script = ExtResource("30_iqsei")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://d4k3wfp6j0f54"]
 
-[ext_resource type="Script" uid="uid://bvcmk6wc5jjof" path="res://scripts/levels/stage_002.gd" id="1_bucwo"]
-[ext_resource type="PackedScene" uid="uid://dxh83mc42rkwq" path="res://global/scenes/vfx.tscn" id="1_n5jx3"]
-[ext_resource type="PackedScene" uid="uid://b8hp02nmd8rw5" path="res://scenes/player/player.tscn" id="2_bucwo"]
-[ext_resource type="PackedScene" uid="uid://dkbdp1o3to20w" path="res://scenes/npcs/enemy.tscn" id="3_br1nw"]
-[ext_resource type="Texture2D" uid="uid://s5we4brx2wp5" path="res://assets/sprites/effects/rounded-square.png" id="4_a3vfw"]
-[ext_resource type="PackedScene" uid="uid://d1aohwfv2w8od" path="res://global/scenes/TileWall.tscn" id="5_cegp8"]
+[ext_resource type="PackedScene" uid="uid://dxh83mc42rkwq" path="res://global/scenes/vfx.tscn" id="1_vqv2h"]
+[ext_resource type="PackedScene" uid="uid://b8hp02nmd8rw5" path="res://scenes/player/player.tscn" id="2_luimt"]
+[ext_resource type="PackedScene" uid="uid://dkbdp1o3to20w" path="res://scenes/npcs/enemy.tscn" id="3_gilj7"]
+[ext_resource type="Texture2D" uid="uid://s5we4brx2wp5" path="res://assets/sprites/effects/rounded-square.png" id="4_q37e8"]
+[ext_resource type="PackedScene" uid="uid://d1aohwfv2w8od" path="res://global/scenes/TileWall.tscn" id="5_m0txs"]
+[ext_resource type="PackedScene" uid="uid://gigjr1gqlyrc" path="res://global/scenes/door.tscn" id="6_luimt"]
 
 [sub_resource type="Animation" id="Animation_u81e1"]
 length = 0.001
@@ -43,13 +43,9 @@ _data = {
 &"fade": SubResource("Animation_b6bv0")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a3vfw"]
-size = Vector2(30.769287, 40.90909)
+[node name="stage_2" type="Node2D" unique_id=1375642259]
 
-[node name="stage_002" type="Node2D" unique_id=1375642259]
-script = ExtResource("1_bucwo")
-
-[node name="VFX" parent="." unique_id=275786583 instance=ExtResource("1_n5jx3")]
+[node name="VFX" parent="." unique_id=275786583 instance=ExtResource("1_vqv2h")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=284142333]
 libraries/ = SubResource("AnimationLibrary_br1nw")
@@ -82,60 +78,48 @@ grow_vertical = 2
 size_flags_horizontal = 4
 color = Color(0, 0, 0, 1)
 
-[node name="Player" parent="." unique_id=849415694 instance=ExtResource("2_bucwo")]
+[node name="Player" parent="." unique_id=849415694 instance=ExtResource("2_luimt")]
 z_index = 1
 position = Vector2(233, 162)
 
 [node name="Enemies" type="Node" parent="." unique_id=658817998]
 
-[node name="Enemy" parent="Enemies" unique_id=1246730130 instance=ExtResource("3_br1nw")]
+[node name="Enemy" parent="Enemies" unique_id=1246730130 instance=ExtResource("3_gilj7")]
 position = Vector2(126, 315)
 
-[node name="Enemy2" parent="Enemies" unique_id=305201294 instance=ExtResource("3_br1nw")]
+[node name="Enemy2" parent="Enemies" unique_id=305201294 instance=ExtResource("3_gilj7")]
 position = Vector2(440, 134)
 
-[node name="Enemy3" parent="Enemies" unique_id=154985198 instance=ExtResource("3_br1nw")]
+[node name="Enemy3" parent="Enemies" unique_id=154985198 instance=ExtResource("3_gilj7")]
 position = Vector2(450, 501)
 
-[node name="Enemy4" parent="Enemies" unique_id=382531089 instance=ExtResource("3_br1nw")]
+[node name="Enemy4" parent="Enemies" unique_id=382531089 instance=ExtResource("3_gilj7")]
 position = Vector2(725, 107)
 
-[node name="Enemy5" parent="Enemies" unique_id=433307774 instance=ExtResource("3_br1nw")]
+[node name="Enemy5" parent="Enemies" unique_id=433307774 instance=ExtResource("3_gilj7")]
 position = Vector2(739, 501)
 
-[node name="Enemy6" parent="Enemies" unique_id=1506266282 instance=ExtResource("3_br1nw")]
+[node name="Enemy6" parent="Enemies" unique_id=1506266282 instance=ExtResource("3_gilj7")]
 position = Vector2(1042, 120)
 
-[node name="Enemy7" parent="Enemies" unique_id=95431492 instance=ExtResource("3_br1nw")]
+[node name="Enemy7" parent="Enemies" unique_id=95431492 instance=ExtResource("3_gilj7")]
 position = Vector2(1024, 503)
 
-[node name="Enemy8" parent="Enemies" unique_id=1259766712 instance=ExtResource("3_br1nw")]
+[node name="Enemy8" parent="Enemies" unique_id=1259766712 instance=ExtResource("3_gilj7")]
 position = Vector2(1277, 296)
 
-[node name="Enemy9" parent="Enemies" unique_id=495828826 instance=ExtResource("3_br1nw")]
+[node name="Enemy9" parent="Enemies" unique_id=495828826 instance=ExtResource("3_gilj7")]
 position = Vector2(741, 314)
 
 [node name="Stage" type="Node" parent="." unique_id=1235275927]
 
-[node name="RoundedSquare" type="Sprite2D" parent="Stage" unique_id=390790892]
-modulate = Color(1, 0, 0, 1)
-position = Vector2(227, 448)
-scale = Vector2(2.059999, 0.6600002)
-texture = ExtResource("4_a3vfw")
-
-[node name="Area2D" type="Area2D" parent="Stage/RoundedSquare" unique_id=395678109]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage/RoundedSquare/Area2D" unique_id=1086919464]
-scale = Vector2(0.99999994, 1)
-shape = SubResource("RectangleShape2D_a3vfw")
-
-[node name="RoundedSquare2" type="Sprite2D" parent="Stage" unique_id=230452114]
+[node name="noDoor" type="Sprite2D" parent="Stage" unique_id=230452114]
 modulate = Color(1, 0, 0, 1)
 position = Vector2(227, 98)
 scale = Vector2(2.059999, 0.6600002)
-texture = ExtResource("4_a3vfw")
+texture = ExtResource("4_q37e8")
 
-[node name="TileWall" parent="Stage" unique_id=1944339359 instance=ExtResource("5_cegp8")]
+[node name="TileWall" parent="Stage" unique_id=1944339359 instance=ExtResource("5_m0txs")]
 position = Vector2(580.31775, 288.06714)
 
 [node name="Line" parent="Stage/TileWall" index="0" unique_id=2093587055]
@@ -144,6 +128,8 @@ layer_0/tile_data = PackedInt32Array(-393228, 0, 1, -393227, 0, 1, -327693, 0, 1
 [node name="Corner" parent="Stage/TileWall" index="1" unique_id=812338834]
 layer_0/tile_data = PackedInt32Array(-393229, 0, 1342177280, -393226, 0, 805306368, -65549, 0, 1610612736, -65546, 0, 0, -65542, 0, 1610612736, -196614, 0, 805306368, -65553, 0, 1342177280, 196591, 0, 0, 196595, 0, 805306368, 196598, 0, 1342177280, 196602, 0, 805306368, 393203, 0, 0, 393206, 0, 1610612736, 327674, 0, 1610612736, 327672, 0, 1342177280, -196616, 0, 0, 589816, 0, 0, -458760, 0, 1342177280, 327677, 0, 0, 196605, 0, 1342177280, -65539, 0, 0, -196611, 0, 1342177280, -458753, 0, 805306368, 589823, 0, 1610612736, 327679, 0, 805306368, -196609, 0, 1610612736, -262143, 0, 0, -524287, 0, 1342177280, 262145, 0, 1342177280, 524289, 0, 0, 131075, 0, 805306368, 262147, 0, 1610612736, -262141, 0, 805306368, -131069, 0, 1610612736, 131078, 0, 1342177280, -131066, 0, 0, -262138, 0, 1342177280, 262150, 0, 0, 262152, 0, 805306368, 524296, 0, 1610612736, -524280, 0, 805306368, -262136, 0, 1610612736, -262134, 0, 0, -524278, 0, 1342177280, -262132, 0, 805306368, -262129, 0, 1342177280, -262127, 0, 1610612736, -524271, 0, 805306368, -131060, 0, 1610612736, -131057, 0, 0, 131084, 0, 805306368, 131087, 0, 1342177280, 262156, 0, 1610612736, 262159, 0, 0, 262154, 0, 1342177280, 524298, 0, 0, 524305, 0, 1610612736, 262161, 0, 805306368, -131052, 0, 1610612736, 131092, 0, 805306368, 458772, 0, 0, -458732, 0, 1342177280, -458726, 0, 805306368, 458778, 0, 1610612736, -262122, 0, 0, -262120, 0, 1610612736, -327656, 0, 805306368, -327658, 0, 1342177280, 262166, 0, 1342177280, 262168, 0, 805306368, 327704, 0, 1610612736, 327702, 0, 0)
 
-[connection signal="body_entered" from="Stage/RoundedSquare/Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="Door" parent="." unique_id=1448745152 instance=ExtResource("6_luimt")]
+position = Vector2(229.99998, 438)
+scale = Vector2(2.0399997, 1)
 
 [editable path="Stage/TileWall"]

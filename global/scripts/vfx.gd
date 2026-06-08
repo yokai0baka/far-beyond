@@ -4,8 +4,13 @@ extends Node
 @onready var blur: ColorRect = $Blur
 @onready var ca: ColorRect = $ChromaticAberration
 
+@onready var animation_player: AnimationPlayer = $Bloom/AnimationPlayer
+
 # Change VFX visibility
 func _process(_delta: float) -> void:
+	if Global.increase_bloom:
+		animation_player.play("increase_Bloom")
+	
 	if Global.bloom_active:
 		bloom.environment.glow_bloom = true
 	else:
