@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://w081xnfhr411"
-path="res://.godot/imported/wall-corner.png-540db8c663adfbd7d793e6ca0aed950f.ctex"
+uid="uid://06o0vv5qhhn3"
+path="res://.godot/imported/tile-line.png-e3ed5d99e5a9075646d5b01ce3db06f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/walls/wall-corner.png"
-dest_files=["res://.godot/imported/wall-corner.png-540db8c663adfbd7d793e6ca0aed950f.ctex"]
+source_file="res://assets/sprites/walls/tile-line.png"
+dest_files=["res://.godot/imported/tile-line.png-e3ed5d99e5a9075646d5b01ce3db06f1.ctex"]
 
 [params]
 

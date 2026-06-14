@@ -1,0 +1,155 @@
+[gd_scene format=3 uid="uid://bmvaoagxt8tei"]
+
+[ext_resource type="PackedScene" uid="uid://dxh83mc42rkwq" path="res://global/scenes/vfx.tscn" id="1_x10b7"]
+[ext_resource type="PackedScene" uid="uid://b8hp02nmd8rw5" path="res://scenes/player/player.tscn" id="2_mbcm8"]
+[ext_resource type="PackedScene" uid="uid://dkbdp1o3to20w" path="res://scenes/npcs/enemy.tscn" id="3_an40k"]
+[ext_resource type="Texture2D" uid="uid://s5we4brx2wp5" path="res://assets/sprites/effects/rounded-square.png" id="4_k2cyf"]
+[ext_resource type="PackedScene" uid="uid://gigjr1gqlyrc" path="res://global/scenes/Door.tscn" id="5_xwmxp"]
+[ext_resource type="PackedScene" uid="uid://d1aohwfv2w8od" path="res://global/scenes/TileWall.tscn" id="6_a3esy"]
+
+[sub_resource type="Animation" id="Animation_u81e1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_b6bv0"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_br1nw"]
+_data = {
+&"RESET": SubResource("Animation_u81e1"),
+&"fade": SubResource("Animation_b6bv0")
+}
+
+[node name="stage_2" type="Node2D" unique_id=1375642259]
+
+[node name="VFX" parent="." unique_id=275786583 instance=ExtResource("1_x10b7")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=284142333]
+libraries/ = SubResource("AnimationLibrary_br1nw")
+
+[node name="ColorRect" type="ColorRect" parent="AnimationPlayer" unique_id=1363579052]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+anchors_preset = -1
+anchor_left = -0.31018522
+anchor_top = -0.3101852
+anchor_right = 0.31018522
+anchor_bottom = 0.3101852
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="ColorRect" parent="." unique_id=603059766]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49446.0
+offset_top = -49504.0
+offset_right = 50554.0
+offset_bottom = 50496.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+color = Color(0, 0, 0, 1)
+
+[node name="Player" parent="." unique_id=849415694 instance=ExtResource("2_mbcm8")]
+z_index = 1
+position = Vector2(548, 542)
+
+[node name="Enemies" type="Node" parent="." unique_id=658817998]
+
+[node name="Enemy" parent="Enemies" unique_id=1246730130 instance=ExtResource("3_an40k")]
+position = Vector2(434, 437)
+
+[node name="Enemy2" parent="Enemies" unique_id=305201294 instance=ExtResource("3_an40k")]
+position = Vector2(658, 437)
+
+[node name="Enemy3" parent="Enemies" unique_id=154985198 instance=ExtResource("3_an40k")]
+position = Vector2(337, 599)
+
+[node name="Enemy4" parent="Enemies" unique_id=382531089 instance=ExtResource("3_an40k")]
+position = Vector2(768, 587)
+
+[node name="Enemy5" parent="Enemies" unique_id=433307774 instance=ExtResource("3_an40k")]
+position = Vector2(964, 585)
+
+[node name="Enemy6" parent="Enemies" unique_id=1506266282 instance=ExtResource("3_an40k")]
+position = Vector2(118, 580)
+
+[node name="Enemy7" parent="Enemies" unique_id=95431492 instance=ExtResource("3_an40k")]
+position = Vector2(118, 414)
+
+[node name="Enemy8" parent="Enemies" unique_id=1259766712 instance=ExtResource("3_an40k")]
+position = Vector2(989, 425)
+
+[node name="Enemy9" parent="Enemies" unique_id=634985062 instance=ExtResource("3_an40k")]
+position = Vector2(118, 186)
+
+[node name="Enemy10" parent="Enemies" unique_id=1154443051 instance=ExtResource("3_an40k")]
+position = Vector2(964, 190)
+
+[node name="Enemy11" parent="Enemies" unique_id=210800429 instance=ExtResource("3_an40k")]
+position = Vector2(675, 190)
+
+[node name="Enemy12" parent="Enemies" unique_id=447790747 instance=ExtResource("3_an40k")]
+position = Vector2(409, 186)
+
+[node name="Enemy13" parent="Enemies" unique_id=432311354 instance=ExtResource("3_an40k")]
+position = Vector2(531, 260)
+
+[node name="Stage" type="Node" parent="." unique_id=1235275927]
+
+[node name="noDoor" type="Sprite2D" parent="Stage" unique_id=230452114]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(548, 579.99994)
+rotation = -3.1415927
+scale = Vector2(2.059999, 0.6600002)
+texture = ExtResource("4_k2cyf")
+
+[node name="Door" parent="Stage" unique_id=1448745152 instance=ExtResource("5_xwmxp")]
+position = Vector2(675, 102)
+scale = Vector2(2.0399997, 1)
+
+[node name="Door2" parent="Stage" unique_id=1195169400 instance=ExtResource("5_xwmxp")]
+position = Vector2(421, 102)
+scale = Vector2(2.0399997, 1)
+
+[node name="TileWall" parent="Stage" unique_id=1944339359 instance=ExtResource("6_a3esy")]
+position = Vector2(580.31775, 288.06714)
+
+[node name="End" parent="Stage/TileWall" index="0" unique_id=1841271643]
+layer_0/tile_data = PackedInt32Array(-65549, 0, 805306368, -65543, 0, 0, -131068, 0, 805306368, -131062, 0, 0, 327678, 0, 805306368, 327679, 0, 0)
+
+[node name="Line" parent="Stage/TileWall" index="1" unique_id=1796592664]
+layer_0/tile_data = PackedInt32Array(655358, 0, 0, 655359, 0, 0, 458753, 0, 1610612736, 524284, 0, 1610612736, 458747, 0, 805306368, 393218, 0, 805306368, 196603, 0, 805306368, 196604, 0, 805306368, 196605, 0, 805306368, 196606, 0, 805306368, 196607, 0, 805306368, 131072, 0, 805306368, 131073, 0, 805306368, 131074, 0, 805306368, 196601, 0, 805306368, 196602, 0, 805306368, 131075, 0, 805306368, 131076, 0, 805306368, 196600, 0, 0, 131077, 0, 0, 524282, 0, 1610612736, 589818, 0, 1610612736, 458755, 0, 1610612736, 524291, 0, 1610612736, 262134, 0, 1610612736, 327670, 0, 1610612736, 393206, 0, 1610612736, 458742, 0, 1610612736, 196615, 0, 1610612736, 262151, 0, 1610612736, 327687, 0, 1610612736, 393223, 0, 1610612736, 720900, 0, 805306368, 720901, 0, 805306368, 720902, 0, 805306368, 589827, 0, 1342177280, 655363, 0, 1342177280, 655354, 0, 1342177280, 720890, 0, 1342177280, 786425, 0, 0, 786424, 0, 0, 786423, 0, 0, 524276, 0, 0, 524277, 0, 0, 458760, 0, 0, 458761, 0, 0, 458739, 0, 1610612736, 393203, 0, 1610612736, 327667, 0, 1610612736, 262131, 0, 1610612736, 196618, 0, 1610612736, 262154, 0, 1610612736, 327690, 0, 1610612736, 393226, 0, 1610612736, 786418, 0, 805306368, 786419, 0, 805306368, 786420, 0, 805306368, 786421, 0, 805306368, 786422, 0, 805306368, 720904, 0, 805306368, 720905, 0, 805306368, 720903, 0, 805306368, 720906, 0, 805306368, 720907, 0, 805306368, 720908, 0, 805306368, 786416, 0, 805306368, 786417, 0, 805306368, 720909, 0, 805306368, 720879, 0, 1342177280, 655343, 0, 1342177280, 589807, 0, 1342177280, 524271, 0, 1342177280, 458735, 0, 1342177280, 393199, 0, 1342177280, 196622, 0, 1342177280, 262158, 0, 1342177280, 327694, 0, 1342177280, 393230, 0, 1342177280, 458766, 0, 1342177280, 524302, 0, 1342177280, 589838, 0, 1342177280, 655374, 0, 1342177280, 196599, 0, 0, 131078, 0, 0, 327663, 0, 1610612736, 262127, 0, 1610612736, 196591, 0, 1610612736, 196595, 0, 1610612736, 131059, 0, 1610612736, 131082, 0, 1610612736, 65546, 0, 1610612736, 65524, 0, 0, 65525, 0, 0, 65526, 0, 0, 65527, 0, 0, 65528, 0, 0, 65529, 0, 0, 65530, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 131055, 0, 1610612736, 65519, 0, 1610612736, -17, 0, 1610612736, -65553, 0, 1610612736, -131089, 0, 1610612736, -196625, 0, 1610612736, -262161, 0, 1610612736, 131086, 0, 1610612736, 65550, 0, 1610612736, 14, 0, 1610612736, -65522, 0, 1610612736, -131058, 0, 1610612736, -196594, 0, 1610612736, -262130, 0, 1610612736, -327666, 0, 1610612736, -327696, 0, 0, -327695, 0, 0, -327694, 0, 0, -327693, 0, 0, -327692, 0, 0, -327691, 0, 0, -327690, 0, 0, -327689, 0, 0, -327688, 0, 0, -393222, 0, 0, -393221, 0, 0, -327683, 0, 0, -327682, 0, 0, -327681, 0, 0, -393216, 0, 0, -458750, 0, 0, -458749, 0, 0, -393211, 0, 0, -393210, 0, 0, -393209, 0, 0, -393208, 0, 0, -393207, 0, 0, -393206, 0, 0, -393205, 0, 0, -393204, 0, 0, -393203, 0, 0, -65548, 0, 0, -65547, 0, 0, -65546, 0, 0, -65545, 0, 0, -65544, 0, 0, -131067, 0, 0, -131066, 0, 0, -131065, 0, 0, -131064, 0, 0, -131063, 0, 0)
+
+[node name="Corner" parent="Stage/TileWall" index="2" unique_id=812338834]
+layer_0/tile_data = PackedInt32Array(655357, 1, 0, 589824, 1, 1610612736, 524288, 1, 1342177280, 589821, 1, 805306368, 589820, 1, 0, 524289, 1, 1610612736, 458748, 1, 805306368, 393217, 1, 1342177280, 393219, 1, 805306368, 458746, 1, 1342177280, 786426, 1, 1610612736, 720899, 1, 0, 786415, 1, 0, 524275, 1, 0, 458762, 1, 1610612736, 720910, 1, 1610612736, 524278, 1, 1610612736, 458759, 1, 0, 131079, 1, 805306368, 196598, 1, 1342177280, 65523, 1, 1342177280, 10, 1, 805306368, -327697, 1, 1342177280, -393202, 1, 805306368, -327687, 1, 1610612736, -393223, 1, 1342177280, -393220, 1, 805306368, -327684, 1, 0, -393215, 1, 1610612736, -458751, 1, 1342177280, -458748, 1, 805306368, -393212, 1, 0, -196610, 1, 536870912, -196609, 1, 805306368, -131074, 1, 0, -131073, 1, 268435456)
+
+[editable path="Stage/TileWall"]

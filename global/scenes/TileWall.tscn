@@ -1,55 +1,12 @@
 [gd_scene format=3 uid="uid://d1aohwfv2w8od"]
 
-[ext_resource type="Texture2D" uid="uid://bn36vcrgpyu4o" path="res://assets/sprites/walls/wall-line.png" id="1_1tc1j"]
-[ext_resource type="Texture2D" uid="uid://w081xnfhr411" path="res://assets/sprites/walls/wall-corner.png" id="2_h7c4w"]
+[ext_resource type="Texture2D" uid="uid://06o0vv5qhhn3" path="res://assets/sprites/walls/tile-line.png" id="1_3t7e1"]
+[ext_resource type="Texture2D" uid="uid://celgh5jy1h2a8" path="res://assets/sprites/walls/tile-end.png" id="1_wsvn7"]
+[ext_resource type="Texture2D" uid="uid://c407yfmhntln8" path="res://assets/sprites/walls/tile-corner.png" id="3_wsvn7"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_h7c4w"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h7c4w"]
-texture = ExtResource("1_1tc1j")
-texture_region_size = Vector2i(32, 34)
-0:0/animation_speed = 10.0
-0:0/animation_frame_0/duration = 1.0
-0:0/animation_frame_1/duration = 1.0
-0:0/animation_frame_2/duration = 1.0
-0:0/animation_frame_3/duration = 1.0
-0:0/animation_frame_4/duration = 1.0
-0:0/animation_frame_5/duration = 1.0
-0:0/animation_frame_6/duration = 1.0
-0:0/animation_frame_7/duration = 1.0
-0:0/animation_frame_8/duration = 1.0
-0:0/animation_frame_9/duration = 1.0
-0:0/animation_frame_10/duration = 1.0
-0:0/animation_frame_11/duration = 1.0
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -17, 16, -17, 16, 17, -16, 17)
-0:1/animation_speed = 10.0
-0:1/animation_frame_0/duration = 1.0
-0:1/animation_frame_1/duration = 1.0
-0:1/animation_frame_2/duration = 1.0
-0:1/animation_frame_3/duration = 1.0
-0:1/animation_frame_4/duration = 1.0
-0:1/animation_frame_5/duration = 1.0
-0:1/animation_frame_6/duration = 1.0
-0:1/animation_frame_7/duration = 1.0
-0:1/animation_frame_8/duration = 1.0
-0:1/animation_frame_9/duration = 1.0
-0:1/animation_frame_10/duration = 1.0
-0:1/animation_frame_11/duration = 1.0
-0:1/0 = 0
-0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -17, 16, -17, 16, 17, -16, 17)
-
-[sub_resource type="TileSet" id="TileSet_3gq1e"]
-tile_size = Vector2i(32, 34)
-physics_layer_0/collision_layer = 1
-physics_layer_0/physics_material = SubResource("PhysicsMaterial_h7c4w")
-sources/0 = SubResource("TileSetAtlasSource_h7c4w")
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3gq1e"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3gq1e"]
-texture = ExtResource("2_h7c4w")
-texture_region_size = Vector2i(32, 34)
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5bj1k"]
+texture = ExtResource("1_wsvn7")
+texture_region_size = Vector2i(32, 32)
 0:0/animation_columns = 12
 0:0/animation_speed = 10.0
 0:0/animation_frame_0/duration = 1.0
@@ -65,20 +22,73 @@ texture_region_size = Vector2i(32, 34)
 0:0/animation_frame_10/duration = 1.0
 0:0/animation_frame_11/duration = 1.0
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -17, 16, -17, 16, 17, -16, 17)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
-[sub_resource type="TileSet" id="TileSet_n3vjo"]
-tile_size = Vector2i(32, 34)
+[sub_resource type="TileSet" id="TileSet_jlt73"]
+tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
-physics_layer_0/physics_material = SubResource("PhysicsMaterial_3gq1e")
-sources/0 = SubResource("TileSetAtlasSource_3gq1e")
+sources/0 = SubResource("TileSetAtlasSource_5bj1k")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3t7e1"]
+texture = ExtResource("1_3t7e1")
+texture_region_size = Vector2i(32, 32)
+0:0/animation_columns = 12
+0:0/animation_speed = 10.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/animation_frame_6/duration = 1.0
+0:0/animation_frame_7/duration = 1.0
+0:0/animation_frame_8/duration = 1.0
+0:0/animation_frame_9/duration = 1.0
+0:0/animation_frame_10/duration = 1.0
+0:0/animation_frame_11/duration = 1.0
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_wsvn7"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_3t7e1")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wsvn7"]
+texture = ExtResource("3_wsvn7")
+texture_region_size = Vector2i(32, 32)
+0:0/animation_columns = 12
+0:0/animation_speed = 10.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/animation_frame_6/duration = 1.0
+0:0/animation_frame_7/duration = 1.0
+0:0/animation_frame_8/duration = 1.0
+0:0/animation_frame_9/duration = 1.0
+0:0/animation_frame_10/duration = 1.0
+0:0/animation_frame_11/duration = 1.0
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_5bj1k"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_wsvn7")
 
 [node name="TileWall" type="Node2D" unique_id=1944339359]
 
-[node name="Line" type="TileMap" parent="." unique_id=2093587055]
-tile_set = SubResource("TileSet_3gq1e")
+[node name="End" type="TileMap" parent="." unique_id=1841271643]
+tile_set = SubResource("TileSet_jlt73")
+format = 2
+
+[node name="Line" type="TileMap" parent="." unique_id=1796592664]
+tile_set = SubResource("TileSet_wsvn7")
 format = 2
 
 [node name="Corner" type="TileMap" parent="." unique_id=812338834]
-tile_set = SubResource("TileSet_n3vjo")
+tile_set = SubResource("TileSet_5bj1k")
 format = 2

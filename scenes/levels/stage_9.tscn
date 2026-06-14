@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://bhhref3e30gfm"]
+
+[ext_resource type="PackedScene" uid="uid://dxh83mc42rkwq" path="res://global/scenes/vfx.tscn" id="1_wemgu"]
+[ext_resource type="PackedScene" uid="uid://b8hp02nmd8rw5" path="res://scenes/player/player.tscn" id="2_llh5i"]
+[ext_resource type="PackedScene" uid="uid://dkbdp1o3to20w" path="res://scenes/npcs/enemy.tscn" id="3_iee3e"]
+[ext_resource type="Texture2D" uid="uid://s5we4brx2wp5" path="res://assets/sprites/effects/rounded-square.png" id="4_t7ct3"]
+[ext_resource type="PackedScene" uid="uid://gigjr1gqlyrc" path="res://global/scenes/Door.tscn" id="5_5s8dd"]
+[ext_resource type="PackedScene" uid="uid://d1aohwfv2w8od" path="res://global/scenes/TileWall.tscn" id="6_jthg2"]
+
+[sub_resource type="Animation" id="Animation_u81e1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_b6bv0"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_br1nw"]
+_data = {
+&"RESET": SubResource("Animation_u81e1"),
+&"fade": SubResource("Animation_b6bv0")
+}
+
+[node name="stage_2" type="Node2D" unique_id=1375642259]
+
+[node name="VFX" parent="." unique_id=275786583 instance=ExtResource("1_wemgu")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=284142333]
+libraries/ = SubResource("AnimationLibrary_br1nw")
+
+[node name="ColorRect" type="ColorRect" parent="AnimationPlayer" unique_id=1363579052]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+anchors_preset = -1
+anchor_left = -0.31018522
+anchor_top = -0.3101852
+anchor_right = 0.31018522
+anchor_bottom = 0.3101852
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="ColorRect" parent="." unique_id=603059766]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49446.0
+offset_top = -49504.0
+offset_right = 50554.0
+offset_bottom = 50496.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+color = Color(0, 0, 0, 1)
+
+[node name="Player" parent="." unique_id=849415694 instance=ExtResource("2_llh5i")]
+z_index = 1
+position = Vector2(580, 536)
+
+[node name="Enemies" type="Node" parent="." unique_id=658817998]
+
+[node name="Enemy" parent="Enemies" unique_id=154985198 instance=ExtResource("3_iee3e")]
+position = Vector2(580, 385)
+
+[node name="Enemy3" parent="Enemies" unique_id=976071212 instance=ExtResource("3_iee3e")]
+position = Vector2(97, 397)
+
+[node name="Enemy4" parent="Enemies" unique_id=416426674 instance=ExtResource("3_iee3e")]
+position = Vector2(319, 353)
+
+[node name="Enemy5" parent="Enemies" unique_id=716144720 instance=ExtResource("3_iee3e")]
+position = Vector2(319, 450)
+
+[node name="Enemy6" parent="Enemies" unique_id=1284653677 instance=ExtResource("3_iee3e")]
+position = Vector2(825, 353)
+
+[node name="Enemy7" parent="Enemies" unique_id=1275219509 instance=ExtResource("3_iee3e")]
+position = Vector2(829, 450)
+
+[node name="Enemy8" parent="Enemies" unique_id=1851975213 instance=ExtResource("3_iee3e")]
+position = Vector2(1073, 397)
+
+[node name="Stage" type="Node" parent="." unique_id=1235275927]
+
+[node name="noDoor" type="Sprite2D" parent="Stage" unique_id=230452114]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(580, 570)
+scale = Vector2(2.059999, 0.6600002)
+texture = ExtResource("4_t7ct3")
+
+[node name="Door" parent="Stage" unique_id=1448745152 instance=ExtResource("5_5s8dd")]
+position = Vector2(43, 397)
+rotation = 1.5707964
+scale = Vector2(2.0399997, 1)
+
+[node name="Door2" parent="Stage" unique_id=2115753196 instance=ExtResource("5_5s8dd")]
+position = Vector2(1118, 397)
+rotation = 1.5707964
+scale = Vector2(2.0399997, 1)
+
+[node name="TileWall" parent="Stage" unique_id=1944339359 instance=ExtResource("6_jthg2")]
+position = Vector2(580.31775, 288.06714)
+
+[node name="End" parent="Stage/TileWall" index="0" unique_id=1841271643]
+layer_0/tile_data = PackedInt32Array(262141, 0, 0, 196610, 0, 805306368, 196621, 0, 0, 262130, 0, 805306368)
+
+[node name="Line" parent="Stage/TileWall" index="1" unique_id=1796592664]
+layer_0/tile_data = PackedInt32Array(655359, 0, 0, 589824, 0, 0, 524285, 0, 1610612736, 458754, 0, 1610612736, 458748, 0, 0, 393219, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 65524, 0, 0, 65525, 0, 0, 65526, 0, 0, 65527, 0, 0, 65528, 0, 0, 65529, 0, 0, 65530, 0, 0, 65531, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 458740, 0, 0, 458741, 0, 0, 458742, 0, 0, 458743, 0, 0, 458744, 0, 0, 458745, 0, 0, 458746, 0, 0, 458747, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 262132, 0, 0, 262133, 0, 0, 262134, 0, 0, 262135, 0, 0, 262136, 0, 0, 262137, 0, 0, 262138, 0, 0, 262139, 0, 0, 262140, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 65520, 0, 0, 65521, 0, 0, 65522, 0, 0, 65523, 0, 0, 262131, 0, 0, 458736, 0, 0, 458737, 0, 0, 458738, 0, 0, 458739, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 65552, 0, 1610612736, 327696, 0, 1610612736, 131055, 0, 1610612736, 393199, 0, 1610612736, 262126, 0, 1610612736, 196625, 0, 1610612736)
+
+[node name="Corner" parent="Stage/TileWall" index="2" unique_id=812338834]
+layer_0/tile_data = PackedInt32Array(589821, 1, 0, 589822, 1, 805306368, 655358, 1, 0, 589825, 1, 1610612736, 524289, 1, 1342177280, 524290, 1, 1610612736, 458749, 1, 805306368, 393218, 1, 1342177280, 458735, 1, 0, 327663, 1, 805306368, 65519, 1, 1342177280, 196591, 1, 1610612736, 196590, 1, 1342177280, 327662, 1, 0, 16, 1, 805306368, 131088, 1, 0, 262160, 1, 1342177280, 393232, 1, 1610612736, 262161, 1, 1610612736, 131089, 1, 805306368)
+
+[editable path="Stage/TileWall"]
