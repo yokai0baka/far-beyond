@@ -13,13 +13,14 @@ class_name Player
 # Labels HUD...
 @onready var label_score: Label = $Camera2D/HUD/LabelScore
 @onready var label_time: Label = $Camera2D/HUD/LabelTime
+@onready var key_card: Sprite2D = $Camera2D/HUD/KeyCard
 @onready var highscore_end: Label = $Camera2D/EndScreen/HighscoreEnd
 @onready var run_time_end: Label = $Camera2D/EndScreen/RunTimeEnd
-@onready var key_card: Sprite2D = $Camera2D/HUD/KeyCard
 
 var SPEED = 250.0
+var volume = 0.0
 
-# Player movement
+# Player movement...
 func _physics_process(_delta: float) -> void:
 	var direction := Input.get_vector("Left", "Right", "Up", "Down").normalized()
 	if direction.x:
@@ -50,13 +51,12 @@ func _process(_delta: float) -> void:
 		MusicInGameAction.stop()
 		set_physics_process(false)
 		end_animation.play("close")
-		await get_tree().create_timer(5).timeout
+		await get_tree().create_timer(4.5).timeout
 		end_animation.pause()
-		
-		if Input.is_action_just_pressed("Reset"):
-			get_tree().change_scene_to_file("res://scenes/levels/menu.tscn")
+		await get_tree().process_frame
+		get_tree().change_scene_to_file("res://scenes/levels/menu.tscn")
 
-# Check Global var and apply kill efects
+# Check Global var and apply kill efects...
 func kill():
 	if Global.apply_kill_effect:
 		Global.check_effect()
@@ -67,7 +67,7 @@ func kill():
 		animation_rainbow.play("rainbow")
 		Global.apply_kill_effect = false
 
-# Change player SPEED on kill
+# Change player SPEED on kill...
 func frenzy(amount: float) -> void:
 	SPEED += 250.0 * amount
 	if SPEED >= 450.0:
@@ -81,16 +81,18 @@ func check_key(has_key_card: bool) -> void:
 	else:
 		key_card.visible = false
 
-# Change music volume
+# Change music volume...
 func inAction():
-	MusicInGameCalm.volume_db = -80.0
-	MusicInGameAction.volume_db = 0.0
+	volume *= 0.9
+	MusicInGameCalm.volume_db = 0.0
+	MusicInGameAction.volume_db = volume
 
 func outOffAction():
-	MusicInGameCalm.volume_db = 0.0
+	volume *= 0.9
+	MusicInGameCalm.volume_db = volume
 	MusicInGameAction.volume_db = -80.0
 
-# Sort kill labels
+# Sort kill labels...
 func play_cassino_label(cassino_label: int) -> void:
 	cassino_label = randi_range(1, 3)
 	cassino_animation.stop()

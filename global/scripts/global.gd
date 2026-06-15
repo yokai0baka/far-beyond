@@ -8,7 +8,7 @@ var end_game = false
 var trail_effect = false
 var increase_bloom = false
 
-var levels = randi_range(1, 2)
+var levels = randi_range(1, 10)
 
 # Points
 var time = 0
@@ -21,6 +21,7 @@ var blur_active = true
 var ca_active = true
 
 func _process(delta: float) -> void:
+	levels = randi_range(1, 10)
 	check_score()
 	time += delta
 

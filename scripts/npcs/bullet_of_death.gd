@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var bullet: CharacterBody2D = $"."
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var sprite_2d_2: Sprite2D = $Sprite2D2
 @onready var player: Player = $"../../../Player"
@@ -8,6 +9,7 @@ var SPEED = 0.0
 
 func shoot():
 	SPEED = 350.0
+	bullet.visible = true
 
 func _physics_process(_delta):
 	if player:
